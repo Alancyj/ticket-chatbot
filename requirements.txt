@@ -1,0 +1,10 @@
+langchain
+langchain-community
+langchain-groq
+pinecone-client
+langchain-pinecone
+python-dotenv
+pypdf
+streamlit
+langchain_groq
+bs4
