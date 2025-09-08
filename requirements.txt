@@ -1,10 +1,8 @@
-langchain
-langchain-community
-langchain-groq
-pinecone-client
-langchain-pinecone
-python-dotenv
-pypdf
-streamlit
+langchain_huggingface
+dotenv
+langchain_community
+transformers
+sentence-transformers
+chromadb
+langchain_chroma
 langchain_groq
-bs4

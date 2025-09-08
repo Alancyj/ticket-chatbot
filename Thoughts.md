@@ -1,9 +1,13 @@
 ref guide https://realpython.com/build-llm-rag-chatbot-with-langchain/#step-1-get-familiar-with-langchain
-
+ref guide for groq https://groq.com/blog/retrieval-augmented-generation-with-groq-api
+chromadb https://www.trychroma.com/yeejiealan1/Production/sdk
+Huggingface (embedding model) https://huggingface.co/models
+git https://github.com/Alancyj/ticket-chatbot
+designing context of chatbot https://www.chatmetrics.com/blog/best-practices-for-chatbot-context-design
 
 steps so far:
 
-1. Create basic langchain model - answer questions using llm, with a agent role ie., healthcare assistant, see run1.py
+1. Create basic langchain model - answer questions using llm, with a custom chatbot ie., healthcare assistant, see run1.py
 
 2. In langchain, can manually pass context - able to answer questions using chain from past knowledge, ie., data/context, see run2.py
 
