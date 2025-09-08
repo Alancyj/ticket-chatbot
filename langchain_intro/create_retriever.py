@@ -3,7 +3,7 @@ import dotenv
 from langchain_community.document_loaders import CSVLoader
 # from langchain_community.vectorstores import Chroma
 from langchain_chroma import Chroma
-from embedding_model import embedding_model
+from langchain_intro.groq_llm import embedding_model
 
 from transformers import AutoModel
 from langchain.text_splitter import RecursiveCharacterTextSplitter
