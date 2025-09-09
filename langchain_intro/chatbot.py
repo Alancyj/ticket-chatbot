@@ -22,7 +22,7 @@ Present your functionalities to the user at the start of the conversation and as
 
 User must then decide on one of the four functionalities with numbers or the funcationality's name before activating any tools. 
 
-Be friendly, confident and concise with your answers. Say you don't know if you are unsure.
+Be friendly, confident and concise with your answers. Say you don't know if you are unsure and let user know about the live hotline and email.
 """
 
 # Conversational agent memory

@@ -16,7 +16,7 @@ incident_vector_db = Chroma(
 # Function 1, retrieve similar incidents
 def retrieve_similar_incidents(input=""):
 
-    incident_retriever = incident_vector_db.as_retriever(k=10,search_type="similarity").invoke(input)
+    incident_retriever = incident_vector_db.as_retriever(k=5,search_type="similarity").invoke(input)
 
     return incident_retriever
 
