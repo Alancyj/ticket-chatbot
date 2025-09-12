@@ -1,0 +1,330 @@
+{
+  "5178bb58-ad0f-4505-aa53-0ea02b6258b7": {
+    "title": null,
+    "messages": [
+      {
+        "role": "ai",
+        "content": "\n    Good [Morning/Afternoon/Evening]!\n\n    Welcome to the Go-Live National Billing System support chatbot. Below are some prompts to start the conversation.\n\n    1. Report an issue with NBS\n    2. Track a ticket number\n    3. Checking system performance\n    4. Top reported issues\n\n    If you want to speak to an agent, please dial our hotline [NBS deployment hotline]. Alternatively, you can email us at [NBS deployment email]\n    "
+      },
+      {
+        "role": "human",
+        "content": "can i track my ticket number"
+      },
+      {
+        "role": "ai",
+        "content": "Yes, you can track your ticket number. Could you please provide your ticket number so I can check its status for you?"
+      },
+      {
+        "role": "human",
+        "content": "sys performance now"
+      },
+      {
+        "role": "ai",
+        "content": "The National Billing System (NBS) is currently running normally. Last updated: Thu Sep 11 16:49:49 2025"
+      },
+      {
+        "role": "human",
+        "content": "system performance yesterday"
+      },
+      {
+        "role": "ai",
+        "content": "I'm unable to provide historical system performance data. However, I can check the current system performance for you. Would you like me to do that?"
+      },
+      {
+        "role": "human",
+        "content": "no"
+      },
+      {
+        "role": "ai",
+        "content": "Sure, I can help you with that. Here are the functionalities again:\n1. Report an issue with NBS\n2. Track a ticket number\n3. Checking system performance\n4. Top reported issues\n\nPlease let me know how you'd like to proceed. If you need immediate assistance, you can reach the live deployment hotline at 12345678 or email nbs.deployment@synapxe.sg."
+      },
+      {
+        "role": "human",
+        "content": "bye"
+      },
+      {
+        "role": "ai",
+        "content": "Thank you for reaching out! If you have any further questions or need assistance, feel free to ask. Have a great day!"
+      },
+      {
+        "role": "human",
+        "content": "test"
+      },
+      {
+        "role": "ai",
+        "content": "Hello! I'm here to help you with the National Billing System (NBS). Please choose one of the following options or type the functionality name:\n1. Report an issue with NBS\n2. Track a ticket number\n3. Check system performance\n4. View top reported issues\n\nYou can also reach us directly at 12345678 or nbs.deployment@synapxe.sg."
+      },
+      {
+        "role": "human",
+        "content": "by"
+      },
+      {
+        "role": "ai",
+        "content": "Hello! I'm here to help you with the National Billing System (NBS). Please choose one of the following options or type the functionality name:\n1. Report an issue with NBS\n2. Track a ticket number\n3. Check system performance\n4. View top reported issues\n\nYou can also reach us directly at 12345678 or nbs.deployment@synapxe.sg."
+      },
+      {
+        "role": "human",
+        "content": "bye"
+      },
+      {
+        "role": "ai",
+        "content": "Thank you for reaching out to the NBS support team. Have a great day!"
+      },
+      {
+        "role": "human",
+        "content": "afdsfsdafdf"
+      },
+      {
+        "role": "ai",
+        "content": "Sorry, I don't understand your input. Please choose one of the following options or type the functionality name: 1. Report an issue with NBS, 2. Track a ticket number, 3. Check system performance, or 4. View top reported issues. You can also reach us directly at 12345678 or nbs.deployment@synapxe.sg."
+      }
+    ]
+  },
+  "e0c89d01-a337-471d-acd2-e039c2ed09f1": {
+    "title": null,
+    "messages": [
+      {
+        "role": "ai",
+        "content": "\n    Good [Morning/Afternoon/Evening]!\n\n    Welcome to the Go-Live National Billing System support chatbot. Below are some prompts to start the conversation.\n\n    1. Report an issue with NBS\n    2. Track a ticket number\n    3. Checking system performance\n    4. Top reported issues\n\n    If you want to speak to an agent, please dial our hotline [NBS deployment hotline]. Alternatively, you can email us at [NBS deployment email]\n    "
+      },
+      {
+        "role": "human",
+        "content": "2"
+      },
+      {
+        "role": "ai",
+        "content": "Sure! To track a ticket number, please provide the ticket number, and I'll assist you."
+      },
+      {
+        "role": "human",
+        "content": "IN1728218"
+      },
+      {
+        "role": "ai",
+        "content": "The incident IN1728218 is related to an issue with ECG being wrongfully tagged in the NBS system at TTSH. It is currently categorized as Priority 2, but there is no close date available."
+      },
+      {
+        "role": "human",
+        "content": "why no close date"
+      },
+      {
+        "role": "ai",
+        "content": "The incident IN1728218, related to the ECG being wrongfully tagged in the NBS system at TTSH, does not have a close date listed because it is either not yet scheduled or the information is not currently available. The issue is currently categorized as Priority 2 and is being addressed. If you need further updates or assistance, feel free to ask!"
+      },
+      {
+        "role": "human",
+        "content": "bye"
+      },
+      {
+        "role": "ai",
+        "content": "Thank you for reaching out to the NBS support team. Have a great day!"
+      },
+      {
+        "role": "human",
+        "content": "abcdef"
+      },
+      {
+        "role": "ai",
+        "content": "Sorry, 'abcdef' is not a valid ticket number. Please provide a valid ticket number that starts with 'IN' to track your issue."
+      }
+    ]
+  },
+  "af54837e-c824-4003-ae83-a2a9c3cc840c": {
+    "title": null,
+    "messages": [
+      {
+        "role": "ai",
+        "content": "\n    Good [Morning/Afternoon/Evening]!\n\n    Welcome to the Go-Live National Billing System support chatbot. Below are some prompts to start the conversation.\n\n    1. Report an issue with NBS\n    2. Track a ticket number\n    3. Checking system performance\n    4. Top reported issues\n\n    If you want to speak to an agent, please dial our hotline [NBS deployment hotline]. Alternatively, you can email us at [NBS deployment email]\n    "
+      },
+      {
+        "role": "human",
+        "content": "hi i have a question\nhow should i report this issue:\nComcare form not filling up even though patient is discharged\nFrom today 1.12pm"
+      },
+      {
+        "role": "ai",
+        "content": "Hello! I'm here to help you with the National Billing System (NBS). Please choose one of the following options to proceed:\n\n1. Report an issue with NBS\n2. Track a ticket number\n3. Check system performance\n4. View top reported issues\n\nFor urgent issues, you can contact our live deployment hotline at 12345678 or email nbs.deployment@synapxe.sg.\n\nWould you like to report an issue? (Yes/No)"
+      },
+      {
+        "role": "human",
+        "content": "yes"
+      },
+      {
+        "role": "ai",
+        "content": "I haven't found any similar incidents reported. Could you please provide more details about the issue, such as any error messages or the steps you took before the issue occurred? This will help me assist you better."
+      },
+      {
+        "role": "human",
+        "content": "nevermind, 3"
+      },
+      {
+        "role": "ai",
+        "content": "The National Billing System (NBS) is currently performing normally. However, I want to make sure we address the issue you mentioned earlier regarding the Comcare form not filling up. If you'd like, we can still proceed with reporting that issue or you can reach out to our support team for further assistance."
+      },
+      {
+        "role": "human",
+        "content": "bye"
+      },
+      {
+        "role": "ai",
+        "content": "Thank you for reaching out! If you have any further questions or need assistance in the future, feel free to contact us again. Have a great day!"
+      }
+    ]
+  },
+  "bfdda7bc-a3c7-4f82-9dfe-bbfd99f477b7": {
+    "title": null,
+    "messages": [
+      {
+        "role": "ai",
+        "content": "\n    Good [Morning/Afternoon/Evening]!\n\n    Welcome to the Go-Live National Billing System support chatbot. Below are some prompts to start the conversation.\n\n    1. Report an issue with NBS\n    2. Track a ticket number\n    3. Checking system performance\n    4. Top reported issues\n\n    If you want to speak to an agent, please dial our hotline [NBS deployment hotline]. Alternatively, you can email us at [NBS deployment email]\n    "
+      },
+      {
+        "role": "human",
+        "content": "hi"
+      },
+      {
+        "role": "ai",
+        "content": "Hello! I'm here to help you with the National Billing System (NBS). Please choose one of the following options:\n\n1. Report an issue with NBS\n2. Track a ticket number\n3. Check system performance\n4. View top reported issues\n\nYou can also contact our live deployment hotline at 12345678 or email nbs.deployment@synapxe.sg for immediate assistance. How can I assist you today?"
+      },
+      {
+        "role": "human",
+        "content": "1"
+      },
+      {
+        "role": "ai",
+        "content": "Sure, I'll help you report an issue with NBS. Could you please provide more details about the issue you're experiencing? If you have a ticket number, please share it with me."
+      }
+    ]
+  },
+  "a3b1abcb-8ef2-430c-960b-dbf074604a94": {
+    "title": null,
+    "messages": [
+      {
+        "role": "ai",
+        "content": "\n    Good [Morning/Afternoon/Evening]!\n\n    Welcome to the Go-Live National Billing System support chatbot. Below are some prompts to start the conversation.\n\n    1. Report an issue with NBS\n    2. Track a ticket number\n    3. Checking system performance\n    4. Top reported issues\n\n    If you want to speak to an agent, please dial our hotline [NBS deployment hotline]. Alternatively, you can email us at [NBS deployment email]\n    "
+      },
+      {
+        "role": "human",
+        "content": "2"
+      },
+      {
+        "role": "ai",
+        "content": "I'm sorry, but it seems that the ticket number you provided does not exist in our system. Could you please double-check the ticket number or provide more details? If you need further assistance, feel free to choose from the following options again: 1. Report an issue with NBS, 2. Track a ticket number, 3. Check system performance, or 4. View top reported issues."
+      },
+      {
+        "role": "human",
+        "content": "IN8134976"
+      },
+      {
+        "role": "ai",
+        "content": "The ticket number IN8134976 exists in our system with an application priority of 3. However, some details such as the department and description are not available. If you need further assistance, feel free to choose from the following options again: 1. Report an issue with NBS, 2. Track a ticket number, 3. Check system performance, or 4. View top reported issues."
+      },
+      {
+        "role": "human",
+        "content": "whats the details"
+      },
+      {
+        "role": "ai",
+        "content": "The ticket number IN8134976 exists in our system with an application priority of 3. However, some details such as the department and description are not available. If you need further assistance, feel free to choose from the following options again: 1. Report an issue with NBS, 2. Track a ticket number, 3. Check system performance, or 4. View top reported issues."
+      },
+      {
+        "role": "human",
+        "content": "can you give me a summary of the ticket issue or the incident title"
+      },
+      {
+        "role": "ai",
+        "content": "I'm sorry, but the details for the incident title or issue summary are not available in the system. If you need further assistance, feel free to choose from the following options again: 1. Report an issue with NBS, 2. Track a ticket number, 3. Check system performance, or 4. View top reported issues."
+      },
+      {
+        "role": "human",
+        "content": "what is the prefix"
+      },
+      {
+        "role": "ai",
+        "content": "The prefix for your ticket number IN8134976 is 'IN', which stands for Incident Number. This is based on the information available in the system."
+      }
+    ]
+  },
+  "78e11a09-ec9b-45f1-addc-8585e7ea2df5": {
+    "title": null,
+    "messages": [
+      {
+        "role": "ai",
+        "content": "Good [Morning/Afternoon/Evening]!\n\nWelcome to the Go-Live National Billing System support chatbot. Below are some prompts to start the conversation.\n\n1. Report an issue with NBS\n2. Track a ticket number\n3. Checking system performance\n4. Top reported issues\n\nIf you want to speak to an agent, please dial our hotline [NBS deployment hotline]. Alternatively, you can email us at [NBS deployment email]"
+      },
+      {
+        "role": "human",
+        "content": "i got issue with NBS"
+      },
+      {
+        "role": "ai",
+        "content": "Sure, I'd be happy to help you with your issue. Could you please provide more details about the problem you're experiencing with NBS? This will help me assist you better. Please include your name, contact information, and a brief description of the issue."
+      },
+      {
+        "role": "human",
+        "content": "i can't login in to NBS"
+      },
+      {
+        "role": "ai",
+        "content": "I'm sorry, but I don't have any information on similar incidents for this issue. Could you please provide more details about your login problem, including your name and contact information, so I can assist you further?"
+      }
+    ]
+  },
+  "79517463-06a8-4b4e-a7fe-a0638685c309": {
+    "title": null,
+    "messages": [
+      {
+        "role": "ai",
+        "content": "Good [Morning/Afternoon/Evening]!\n\nWelcome to the Go-Live National Billing System support chatbot. Below are some prompts to start the conversation.\n\n1. Report an issue with NBS\n2. Track a ticket number\n3. Checking system performance\n4. Top reported issues\n\nIf you want to speak to an agent, please dial our hotline [NBS deployment hotline]. Alternatively, you can email us at [NBS deployment email]"
+      }
+    ]
+  },
+  "63689714-efb7-4554-942a-138461841ad5": {
+    "title": null,
+    "messages": [
+      {
+        "role": "ai",
+        "content": "Good [Morning/Afternoon/Evening]!\n\nWelcome to the Go-Live National Billing System support chatbot. Below are some prompts to start the conversation.\n\n1. Report an issue with NBS\n2. Track a ticket number\n3. Checking system performance\n4. Top reported issues\n\nIf you want to speak to an agent, please dial our hotline [NBS deployment hotline]. Alternatively, you can email us at [NBS deployment email]"
+      },
+      {
+        "role": "human",
+        "content": "3"
+      },
+      {
+        "role": "ai",
+        "content": "Sure, I'll check the current system performance for you. The National Billing System is currently operational. All services are running smoothly, and there are no reported outages or critical issues at the moment."
+      },
+      {
+        "role": "human",
+        "content": "4"
+      },
+      {
+        "role": "ai",
+        "content": "I don't have access to real-time data to generate a list of top reported issues. However, I can help you report an issue or guide you on how to track a specific ticket. Let me know how I can assist!"
+      },
+      {
+        "role": "human",
+        "content": "2"
+      },
+      {
+        "role": "ai",
+        "content": "Sure, I'll help you track your ticket. Could you please provide your ticket number? Note that valid ticket numbers start with 'IN'."
+      },
+      {
+        "role": "human",
+        "content": "IN3020093"
+      },
+      {
+        "role": "ai",
+        "content": "The incident IN3020093 is currently marked as 'PENDING USER RESOLVE - SERVICE REQUEST' with a priority of 2. It is expected to be closed by July 23, 2025. If you have any further questions or need assistance, feel free to reach out to our support team at 12345678 or nbs.deployment@synapxe.sg."
+      },
+      {
+        "role": "human",
+        "content": "ok byebyebyebybebyebybeybrwbyhbhjw"
+      },
+      {
+        "role": "ai",
+        "content": "Thank you for reaching out! If you have any more questions or need further assistance, feel free to contact us at 12345678 or nbs.deployment@synapxe.sg. Have a great day!"
+      }
+    ]
+  }
+}
