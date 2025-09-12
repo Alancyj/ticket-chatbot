@@ -1,7 +1,7 @@
 from langchain.agents import Tool
 import pandas as pd
 from langchain_community.vectorstores import Chroma
-from langchain_intro.groq_llm import embedding_model
+from models.groq_llm import embedding_model
 import datetime
 
 # Instantiate vector datebase 

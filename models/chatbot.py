@@ -3,8 +3,8 @@ import dotenv
 from langchain_core.output_parsers import StrOutputParser
 from langchain_community.vectorstores import Chroma
 from langchain.chains.conversation.memory import ConversationBufferWindowMemory
-from langchain_intro.groq_llm import embedding_model, chatbot_llm
-from langchain_intro.tools import tools
+from models.groq_llm import embedding_model, chatbot_llm
+from models.tools import tools
 from langchain.agents import initialize_agent
 
 # Setup environment

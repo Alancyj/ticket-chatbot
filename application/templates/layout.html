@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Chatbot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+      <!-- Menu button (Three bar icon) -->
+      <div class="sidebar-header">
+        <button id="menu-toggle" class="menu-btn">&#9776;</button>
+      </div>
+
+      <!-- New chat button (pencil icon) -->
+      <button id="new-chat" class="new-query-btn">&#9998;</button>
+
+      <!-- Chat history -->
+      <h2 class="sidebar-title">Conversations</h2>
+      <ul id="chat-list" class="chat-list">
+        {% for chat_id, chat in chats.items()|list|reverse %}
+          <li>
+            <a href="{{ url_for('chat', chat_id=chat_id) }}">
+              Chat {{ loop.revindex }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <!-- NBS logo footer -->
+      <div class="sidebar-logo"> 
+        <img src="{{ url_for('static', filename='images/nbs-logo.png') }}" alt="NBS logo">
+      </div>
+
+    </aside>
+
+    <!-- Main content -->
+    <main class="main">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
