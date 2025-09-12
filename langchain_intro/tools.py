@@ -30,7 +30,7 @@ retrieve_incident_func = Tool(
 # Function 2, track a ticket number
 def search_ticket_number(input=""):
     table = pd.read_csv("./data/ttsh_golive_incidents_trimmed.csv")
-    incident_row = table[table["Incident"] == input]
+    incident_row = table[table["Incident Number"] == input]
     return incident_row
 
 # Activate criteria
