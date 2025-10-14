@@ -5,15 +5,15 @@ from groq import GroqError
 from models.chatbot import ticket_chatbot_agent
 from application.utils import load_chats, save_chats
 import uuid
-
-
+from datetime import datetime
 
 # Store chats in memory (id → chat data)
 
 # initialising variables
 chats = load_chats()
 current_chat_id = None
-messageStartUp = "Good [Morning/Afternoon/Evening]!\n\nWelcome to the Go-Live National Billing System support chatbot. Below are some prompts to start the conversation.\n\n1. Report an issue with NBS\n2. Track a ticket number\n3. Checking system performance\n4. Top reported issues\n\nIf you want to speak to an agent, please dial our hotline [NBS deployment hotline]. Alternatively, you can email us at [NBS deployment email]"
+part_of_day = lambda hour : "Morning" if hour < 12  else "Afternoon" if hour < 18 else "Evening" if hour <= 24 else "Morning"
+messageStartUp = f"Good {part_of_day(datetime.now().hour)}!\n\nWelcome to the Go-Live National Billing System support chatbot. Below are some prompts to start the conversation.\n\n1. Report an issue with NBS\n2. Track a ticket number\n3. Checking system performance\n4. Top reported issues\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
 
 # generating unique chat ID using UUID 
 def generate_chat_id():
@@ -30,18 +30,24 @@ def call_model(query):
         if "rate limit" in str(e).lower():
             rate_limit_error = ("Oops, seems like the rate limit has been reached. This error is occurring as we are using the free version of Groq model in this prototype/test.")
 
-        return rate_limit_error
+            return rate_limit_error
+
+        return "Chatbot has encountered an error.\n\n" + str(e)
 
 # startup page
 @app.route("/")
 def index():
     global current_chat_id
 
-    if current_chat_id is None or current_chat_id not in chats: # start a new chat if none exists
+    if chats == {}: # start a new chat if none exists
+    # if current_chat_id is None or current_chat_id not in chats: # start a new chat if none exists
         current_chat_id = generate_chat_id()
-        chats[current_chat_id] = {"title": None, 
+        chats[current_chat_id] = {"title": 'Chat 1', 
                                   "messages": [{"role": "ai", "content": messageStartUp}]}
         save_chats(chats)
+    else:
+        # take the first chat in chat json
+        current_chat_id = list(chats.keys())[0]
 
     return render_template("chat.html", messages=chats[current_chat_id]["messages"], chats=chats)
 
@@ -86,10 +92,29 @@ def send_message():
 def new_chat():
     global current_chat_id
 
+    chatTitle = [chat["title"] for chat in list(chats.values())]
+    chatTitleNumber = [title.split(' ')[1] for title in chatTitle]
+    newTitle = 'Chat ' + str(int(max(chatTitleNumber)) + 1)
+
     new_id = generate_chat_id()
-    chats[new_id] = {"title": None,
+    chats[new_id] = {"title": newTitle,
                      "messages": [{"role": "ai", "content": messageStartUp}]}
     current_chat_id = new_id
     save_chats(chats)
     
     return jsonify({"chat_id": new_id})
+
+# Remove chat from list
+@app.route("/delete_chat/<chat_id>", methods=["DELETE"])
+def delete_chat(chat_id):
+    global current_chat_id
+
+    # Delete chat key from chats
+    if chat_id in chats: del chats[chat_id]
+    save_chats(chats)
+
+    # If user current chat is the one being deleted -> Redirect user to first chatid
+    if current_chat_id == chat_id : return jsonify({"chat_id": None})
+
+    # If user current chat is not the one being deleted -> Stay in chat
+    return jsonify({"chat_id": current_chat_id})

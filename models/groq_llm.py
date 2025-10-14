@@ -9,10 +9,9 @@ embedding_model = HuggingFaceEmbeddings(model_name='all-MiniLM-L6-v2')
 # LLM
 # Token limit of 10000
 chatbot_llm = ChatGroq(
-    model="deepseek-r1-distill-llama-70b",
+    model="llama-3.3-70b-versatile",
     temperature=0,
     max_tokens=None,
-    reasoning_format="parsed",
     timeout=None,
     max_retries=2,
 )

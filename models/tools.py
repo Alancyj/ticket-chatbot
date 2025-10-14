@@ -29,7 +29,9 @@ retrieve_incident_func = Tool(
 
 # Function 2, track a ticket number
 def search_ticket_number(input=""):
-    table = pd.read_csv("./data/ttsh_golive_incidents_trimmed.csv")
+    fpath = "models/data/ttsh_golive_incidents_mockup_v2.csv"
+    
+    table = pd.read_csv(fpath)
     incident_row = table[table["Incident Number"] == input]
     return incident_row
 
@@ -37,7 +39,7 @@ def search_ticket_number(input=""):
 search_ticket_func = Tool(
     name='To search ticket number',
     func= search_ticket_number,
-    description=" Only use this tool if the ticket number provided starts with 'IN'. Useful for when you need to answer questions when tracking ticket number. Summarise the output of the tool if exists."
+    description="If user enters a ticket number that does not start with IN, prompt them for a valid ticket number. Only use this tool if the ticket number provided starts with 'IN'. Useful for when you need to answer questions when tracking ticket number. Summarise the output of the tool if exists."
 )
 
 # Function 3, check system performance

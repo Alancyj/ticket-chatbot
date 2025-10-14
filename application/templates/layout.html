@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>AI Chatbot</title>
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
+
 <body>
   <div class="container">
 
@@ -24,16 +27,18 @@
       <h2 class="sidebar-title">Conversations</h2>
       <ul id="chat-list" class="chat-list">
         {% for chat_id, chat in chats.items()|list|reverse %}
-          <li>
-            <a href="{{ url_for('chat', chat_id=chat_id) }}">
-              Chat {{ loop.revindex }}
-            </a>
-          </li>
+        <li style="display: flex;">
+          <a style="margin:auto 0.1em;" href="{{ url_for('chat', chat_id=chat_id) }}">
+            {{ chat.title }}
+          </a>
+          <!-- Delete chat button (X icon) -->
+          <button class="delete-chat" data-chat_id="{{ chat_id }}"class="delete-chat-btn">&#x2716;</button>
+        </li>
         {% endfor %}
       </ul>
 
       <!-- NBS logo footer -->
-      <div class="sidebar-logo"> 
+      <div class="sidebar-logo">
         <img src="{{ url_for('static', filename='images/nbs-logo.png') }}" alt="NBS logo">
       </div>
 
@@ -46,4 +51,5 @@
   </div>
   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
+
 </html>
