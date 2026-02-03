@@ -1,7 +1,6 @@
 # import relevant libraries
 import json
 from pathlib import Path
-#from langchain_core.messages import AIMessage, HumanMessage
 
 # chats stored in JSON file
 CHAT_FILE = Path("application/data/chats.json")

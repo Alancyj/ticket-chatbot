@@ -1,10 +1,10 @@
 {
-  "9ce5b0bf-54e4-4feb-a4da-e86c2208f2a0": {
+  "834c34cc-8dbc-4aa7-a3ad-bb4aec312adb": {
     "title": "Chat 1",
     "messages": [
       {
         "role": "ai",
-        "content": "Good Evening!\n\nWelcome to the Go-Live National Billing System support chatbot. Below are some prompts to start the conversation.\n\n1. Report an issue with NBS\n2. Track a ticket number\n3. Checking system performance\n4. Top reported issues\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
+        "content": "Good Morning!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n1. Report an issue with the system\n2. Track a ticket number\n3. Check system performance\n4. List commonly recurring issues\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
       }
     ]
   }

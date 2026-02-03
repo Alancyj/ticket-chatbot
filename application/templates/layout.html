@@ -12,43 +12,57 @@
 <body>
   <div class="container">
 
-    <!-- Sidebar -->
+    <!-- sidebar -->
     <aside class="sidebar">
 
-      <!-- Menu button (Three bar icon) -->
+      <!-- menu button (three bar icon) -->
       <div class="sidebar-header">
         <button id="menu-toggle" class="menu-btn">&#9776;</button>
       </div>
 
-      <!-- New chat button (pencil icon) -->
-      <button id="new-chat" class="new-query-btn">&#9998;</button>
+      <!-- new chat button (pencil icon) -->
+      <button id="new-chat">
+        <span class="icon">&#9998;</span>
+        <span class="text">&#10240;New Chat</span>
+      </button>
 
-      <!-- Chat history -->
+      <!-- chat history -->
       <h2 class="sidebar-title">Conversations</h2>
       <ul id="chat-list" class="chat-list">
         {% for chat_id, chat in chats.items()|list|reverse %}
-        <li style="display: flex;">
-          <a style="margin:auto 0.1em;" href="{{ url_for('chat', chat_id=chat_id) }}">
+        <li>
+          <a href="{{ url_for('chat', chat_id=chat_id) }}">
             {{ chat.title }}
           </a>
-          <!-- Delete chat button (X icon) -->
-          <button class="delete-chat" data-chat_id="{{ chat_id }}"class="delete-chat-btn">&#x2716;</button>
+          <!-- delete chat button (changes to refresh button based on logic) -->
+          <button class="delete-chat delete-chat-btn" data-chat-id="{{ chat_id }}"
+          data-has-user-messages="{{ 'true' if chat.messages
+          |selectattr('role', 'equalto', 'human')
+          |list
+          |length > 0
+          else 'false' }}">&#x2716;</button>
         </li>
         {% endfor %}
       </ul>
 
-      <!-- NBS logo footer -->
+      <!-- system logo footer -->
       <div class="sidebar-logo">
-        <img src="{{ url_for('static', filename='images/nbs-logo.png') }}" alt="NBS logo">
+        <img src="{{ url_for('static', filename='images/bill-logo.png') }}" alt="System logo">
       </div>
 
     </aside>
 
-    <!-- Main content -->
+    <!-- main content -->
     <main class="main">
       {% block content %}{% endblock %}
     </main>
   </div>
+
+  <!-- system status pop-up -->
+  <div id="system-status-popup" class="status-popup">
+    System status: ...
+  </div>
+
   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 

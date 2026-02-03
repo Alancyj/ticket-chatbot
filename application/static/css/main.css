@@ -1,4 +1,9 @@
-/* Body style */
+/* 
+=========================
+Body style
+=========================
+*/
+
 body {
   margin: 0;
   font-family: 'Hanken Grotesk', 'Inter', sans-serif;
@@ -6,7 +11,13 @@ body {
   color: #333;
 }
 
-/* Container styles */
+
+/* 
+=========================
+Container style
+=========================
+*/
+
 .container {
   display: flex;
   height: 100vh;
@@ -15,11 +26,16 @@ body {
 }
 
 .container.collapsed {
-  margin-left: 70px; 
+  margin-left: 70px;
 }
 
 
-/* Sidebar styles */
+/* 
+=========================
+Sidebar style
+=========================
+*/
+
 .sidebar {
   width: 250px;
   background: linear-gradient(135deg, #5967D6, #4D59BA);
@@ -36,28 +52,13 @@ body {
   overflow: hidden;
 }
 
-.sidebar-logo {
-  margin-top: auto; 
-  display: flex;
-  align-items: center;
-  padding: 0.5rem;
-  padding-top: 1rem;
-}
-
-.sidebar-logo img {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-}
-
 .sidebar.collapsed {
   width: 70px;
-  background: linear-gradient(135deg, #5967D6, #4D59BA);
 }
 
 .sidebar.collapsed h2,
 .sidebar.collapsed ul,
-.sidebar.collapsed .new-chat {
+.sidebar.collapsed #new-chat {
   display: none;
 }
 
@@ -72,26 +73,30 @@ body {
   display: block;
 }
 
-#new-chat, .delete-chat {
-  font-size: 1.5rem;
-  cursor: pointer;
-  background: none;
-  border: none;
-  color: #fff;
-  padding: 0.5rem;
-  text-align: left;
-  display: block;
+#new-chat,
+.delete-chat {
+    font-size: 1.5rem;
+    font-family: inherit;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #fff;
+    text-align: left;
+}
+
+#new-chat .text {      
+    font-size: 1rem;
 }
 
 .delete-chat {
     padding: 0 0.5rem;
     margin-left: auto;
     border-radius: 20%;
+    transition: background 0.5s;
 }
 
-#delete-chat:hover {
+.delete-chat:hover {
   background: #6770b5;
-  transition: 0.5s;
 }
 
 .sidebar h2 {
@@ -114,6 +119,14 @@ body {
   margin: 0.5rem 0;
 }
 
+.chat-list li {
+  display: flex;
+}
+
+.chat-list li a {
+  margin: auto 0.1em;
+}
+
 .sidebar a {
   color: #fff;
   text-decoration: none;
@@ -132,8 +145,26 @@ body {
   background: rgba(255, 255, 255, 0.15);
 }
 
+.sidebar-logo {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  padding-top: 1rem;
+}
 
-/* Chat window */
+.sidebar-logo img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* 
+=========================
+Chat window
+=========================
+*/
+
 .main {
   flex: 1;
   display: flex;
@@ -148,47 +179,15 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  background: #f7f7f8;
 }
 
 
-/* Message styles */
-.message {
-  display: flex;
-  align-items: flex-start;
-  margin: 0.15rem 0;
-  padding: 0.2rem 0.8rem;
-  border-radius: 12px;
-  max-width: 70%;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  line-height: 1.2;
-  font-size: 0.95rem;
-  position: relative;
-  white-space: pre-wrap;
-}
+/* 
+=========================
+Input style
+=========================
+*/
 
-p {
-    display: inline;
-}
-
-.message.human {
-    background: #D9D9D9;
-    color: #000;
-    margin-left: auto;
-    border-bottom-right-radius: 3px;
-}
-
-.message.ai {
-    background: #fff;
-    color: #000;
-    margin-right: auto;
-    border-bottom-left-radius: 3px;
-}
-
-
-/* Input styles */
 .chat-input {
   display: flex;
   padding: 0.75rem;
@@ -231,25 +230,33 @@ p {
   transform: translateY(-1px);
 }
 
+#send-btn {
+  display: none;
+}
 
-/* Flex stuffs */
+
+/* 
+=========================
+Flex
+=========================
+*/
+
 .chat-main {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.chat-window {
-  flex: 1;
-  overflow-y: auto;
-}
-
 .chat-input-wrapper {
   flex-shrink: 0;
 }
 
+/* 
+=========================
+Scrollbar style
+=========================
+*/
 
-/* Scrollbar styles */
 #chat-window::-webkit-scrollbar {
   width: 8px;
 }
@@ -267,8 +274,12 @@ p {
   display: none;
 }
 
+/* 
+=========================
+Responsive stuff
+=========================
+*/
 
-/* Responsive stuffs */
 @media (max-width: 768px) {
   .sidebar {
     width: 200px;
@@ -282,4 +293,59 @@ p {
   .message {
     max-width: 85%;
   }
+}
+
+/* 
+=========================
+Miscellaneous
+=========================
+*/
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  margin: 0.15rem 0;
+  padding: 0.2rem 0.8rem;
+  border-radius: 12px;
+  max-width: 70%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  line-height: 1.2;
+  font-size: 0.95rem;
+  position: relative;
+  white-space: pre-wrap;
+}
+
+.message p {
+  display: inline;
+}
+
+.message.human {
+  background: #D9D9D9;
+  color: #000;
+  margin-left: auto;
+  border-bottom-right-radius: 3px;
+}
+
+.message.ai {
+  background: #fff;
+  color: #000;
+  margin-right: auto;
+  border-bottom-left-radius: 3px;
+}
+
+.status-popup {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(86, 100, 208, 0.9);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    font-size: 0.95rem;
+    font-weight: 500;
+    z-index: 9999;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }

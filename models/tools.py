@@ -62,7 +62,7 @@ def check_system_performance(input=""):
 check_system_status_func = Tool(
     name='To return current system performance',
     func= check_system_performance,
-    description="Useful for when you need to answer questions about National Billing System (NBS) system performance. "
+    description="Useful for when you need to answer questions about Public Billing System (PBS) system performance. "
 )
 
 # List will be passed to chatbot agent to use

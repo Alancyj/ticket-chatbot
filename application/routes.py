@@ -3,17 +3,16 @@ from flask import render_template, request, jsonify, redirect, url_for
 from application import app
 from groq import GroqError
 from models.chatbot import ticket_chatbot_agent
+from models.tools import check_system_performance
 from application.utils import load_chats, save_chats
 import uuid
 from datetime import datetime
-
-# Store chats in memory (id → chat data)
 
 # initialising variables
 chats = load_chats()
 current_chat_id = None
 part_of_day = lambda hour : "Morning" if hour < 12  else "Afternoon" if hour < 18 else "Evening" if hour <= 24 else "Morning"
-messageStartUp = f"Good {part_of_day(datetime.now().hour)}!\n\nWelcome to the Go-Live National Billing System support chatbot. Below are some prompts to start the conversation.\n\n1. Report an issue with NBS\n2. Track a ticket number\n3. Checking system performance\n4. Top reported issues\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
+messageStartUp = f"Good {part_of_day(datetime.now().hour)}!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n1. Report an issue with the system\n2. Track a ticket number\n3. Check system performance\n4. List commonly recurring issues\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
 
 # generating unique chat ID using UUID 
 def generate_chat_id():
@@ -50,6 +49,17 @@ def index():
         current_chat_id = list(chats.keys())[0]
 
     return render_template("chat.html", messages=chats[current_chat_id]["messages"], chats=chats)
+
+# show system performance in top right popup
+@app.route("/system_status")
+def system_status():
+    status_str = check_system_performance()
+    status_text = status_str.split(". Last updated")[0]
+    
+    # determine emoji based on status
+    emoji = "🟢" if status_text.lower() == "normal" else "🟡" if "slowness" in status_text.lower() else "🔴"
+    
+    return jsonify({"status": f"{status_text} {emoji}"})
 
 # get specific chat from chat ID
 @app.route("/chat/<chat_id>")
@@ -104,17 +114,32 @@ def new_chat():
     
     return jsonify({"chat_id": new_id})
 
-# Remove chat from list
+# refresh chat from sidebar
+@app.route("/reset_chat/<chat_id>", methods=["POST"])
+def reset_chat(chat_id):
+    if chat_id not in chats:
+        return jsonify({"error": "Chat not found"}), 404
+
+    # keep title, reset messages
+    chats[chat_id]["messages"] = [
+        {"role": "ai", "content": messageStartUp}
+    ]
+
+    save_chats(chats)
+    return jsonify({"chat_id": chat_id})
+
+
+# remove chat from list
 @app.route("/delete_chat/<chat_id>", methods=["DELETE"])
 def delete_chat(chat_id):
     global current_chat_id
 
-    # Delete chat key from chats
+    # delete chat key from chats
     if chat_id in chats: del chats[chat_id]
     save_chats(chats)
 
-    # If user current chat is the one being deleted -> Redirect user to first chatid
+    # if user current chat is the one being deleted -> redirect user to first chat_id
     if current_chat_id == chat_id : return jsonify({"chat_id": None})
 
-    # If user current chat is not the one being deleted -> Stay in chat
+    # if user current chat is not the one being deleted -> stay in chat
     return jsonify({"chat_id": current_chat_id})

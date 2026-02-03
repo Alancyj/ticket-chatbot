@@ -1,23 +1,71 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Variables
+    // VARIABLES
     const textarea = document.getElementById("user-input");
     const sendBtn = document.getElementById("send-btn");
     const newChatBtn = document.getElementById("new-chat");
-    const delChatBtn = document.getElementsByClassName("delete-chat");
     const chatList = document.getElementById("chat-list");
     const chatWindow = document.getElementById("chat-window");
     const menuToggle = document.getElementById("menu-toggle");
     const sidebar = document.querySelector(".sidebar");
     const container = document.querySelector(".container");
 
-    // Collapse sidebar using menu button
+    // alternating refresh and delete chat buttons depending on context
+    chatList.addEventListener("click", async (e) => {
+        const btn = e.target.closest(".delete-chat");
+        if (!btn) return;
+
+        const chatId = btn.dataset.chatId;
+
+        // refresh chat
+        if (btn.classList.contains("refresh-chat")) {
+            const res = await fetch(`/reset_chat/${chatId}`, {
+                method: "POST",
+            });
+            const data = await res.json();
+            window.location.href = `/chat/${data.chat_id}`;
+            return;
+        }
+
+        // delete chat
+        const res = await fetch(`/delete_chat/${chatId}`, {
+            method: "DELETE",
+        });
+        const data = await res.json();
+
+        window.location.href = data.chat_id
+            ? `/chat/${data.chat_id}`
+            : `/`;
+    });
+
+
+    // collapse sidebar
     menuToggle.addEventListener("click", () => {
         sidebar.classList.toggle("collapsed");
         container.classList.toggle("collapsed");
     });
 
-    // Send message with [Enter] key, insert line break with [Shift+Enter] keys
+
+    // popup to show system status (eg. Normal)
+    const systemPopup = document.getElementById("system-status-popup");
+
+    async function updateSystemStatus() {
+        try {
+            const res = await fetch("/system_status");
+            const data = await res.json();
+            systemPopup.textContent = `System performance: ${data.status}`;
+        } catch (err) {
+            systemPopup.textContent = "System performance: Error ❌";
+            console.error(err);
+        }
+    }
+
+    // run immediately, then every 60s
+    updateSystemStatus();
+    setInterval(updateSystemStatus, 60000);
+
+
+    // click enter key to send message
     textarea.addEventListener("keydown", function (e) {
         if (e.key === "Enter" && !e.shiftKey) {
             e.preventDefault();
@@ -25,45 +73,52 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Auto-resize text area if message is too long
+    // auto resize input text area
     textarea.addEventListener("input", function () {
         this.style.height = "auto";
         this.style.height = this.scrollHeight + "px";
     });
 
-    // Scroll chat window to bottom
+    // scroll chat to bottom
     function scrollToBottom() {
         chatWindow.scrollTop = chatWindow.scrollHeight;
     }
     scrollToBottom();
 
-    // Create new chat with new chat button on sidebar
+    // create new chat
     newChatBtn.addEventListener("click", async () => {
         const res = await fetch("/new_chat", { method: "POST" });
         const data = await res.json();
         window.location.href = `/chat/${data.chat_id}`;
     });
 
-    // Delete chat with delete chat button on sidebar
-    const delChatBtnArray = Array.from(delChatBtn)
+    // context for changing refresh / delete chat button
+    function updateSingleChatButton() {
+        const chatItems = chatList.querySelectorAll("li");
+        if (chatItems.length !== 1) return;
 
-    delChatBtnArray.forEach(function (elem) {
-        elem.addEventListener("click", async () => {
-            const res = await fetch("/delete_chat/" + elem.dataset.chat_id, { method: "DELETE" });
-            const data = await res.json();
+        const btn = chatItems[0].querySelector(".delete-chat");
+        if (!btn) return;
 
-            if (data.chat_id == null) {
-                window.location.href = `/`
-            } else {
-                window.location.href = `/chat/${data.chat_id}`;
-                // window.location.href = `/`
-            }
+        const hasUserMessages = btn.dataset.hasUserMessages === "true";
 
-        })
-    })
+        // show delete button
+        if (hasUserMessages && btn.classList.contains("refresh-chat")) {
+            btn.innerHTML = "&#x2716;";
+            btn.classList.remove("refresh-chat");
+        }
 
+        // show refresh button
+        if (!hasUserMessages && !btn.classList.contains("refresh-chat")) {
+            btn.innerHTML = "&#128472;";
+            btn.classList.add("refresh-chat");
+        }
+    }
 
-    // Send message
+    // run once on page load
+    updateSingleChatButton();
+
+    // send message
     sendBtn.addEventListener("click", async () => {
         const userMessage = textarea.value.trim();
         if (!userMessage) return;
@@ -71,14 +126,14 @@ document.addEventListener("DOMContentLoaded", () => {
         textarea.value = "";
         textarea.style.height = "auto";
 
-        // Add user message to chat window
+        // adding user message to UI
         const userDiv = document.createElement("div");
         userDiv.classList.add("message", "human");
         userDiv.innerHTML = `<p>${userMessage}</p>`;
         chatWindow.appendChild(userDiv);
         scrollToBottom();
 
-        // Send message to backend
+        // sending to backend
         const res = await fetch("/send_message", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -91,28 +146,24 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Add chatbot message to chat window
+        // adding AI reply to UI
         const aiDiv = document.createElement("div");
         aiDiv.classList.add("message", "ai");
         aiDiv.innerHTML = `<p>${data.reply}</p>`;
         chatWindow.appendChild(aiDiv);
         scrollToBottom();
 
-        // Update sidebar in real time (naming chat "Chat N")
-        let chatLink = chatList.querySelector(`a[href="/chat/${data.chat_id}"]`);
-        if (!chatLink) {
-            const li = document.createElement("li");
-            chatLink = document.createElement("a");
-            chatLink.href = `/chat/${data.chat_id}`;
+        // marking chat as 'hasUserMessages' for delete button
+        const currentChatBtn = chatList.querySelector(
+            `.delete-chat[data-chat-id="${data.chat_id}"]`
+        );
 
-            // Always assign the next number (highest)
-            chatLink.textContent = data.chat_title;
-            li.appendChild(chatLink);
-
-            // Insert at the top (newest first)
-            chatList.insertBefore(li, chatList.firstChild);
+        if (currentChatBtn) {
+            currentChatBtn.dataset.hasUserMessages = "true";
         }
 
-
+        // re-check refresh/delete logic immediately
+        updateSingleChatButton();
     });
+
 });
