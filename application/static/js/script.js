@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.getElementById("menu-toggle");
     const sidebar = document.querySelector(".sidebar");
     const container = document.querySelector(".container");
+    const branding = document.getElementById("branding");
+    const linksInMessage = document.getElementsByClassName("link-in-message");
 
     // alternating refresh and delete chat buttons depending on context
     chatList.addEventListener("click", async (e) => {
@@ -43,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     menuToggle.addEventListener("click", () => {
         sidebar.classList.toggle("collapsed");
         container.classList.toggle("collapsed");
+        branding.classList.toggle('hidden');
     });
 
 
@@ -53,9 +56,9 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const res = await fetch("/system_status");
             const data = await res.json();
-            systemPopup.textContent = `System performance: ${data.status}`;
+            systemPopup.textContent = `PBS status: ${data.status}`;
         } catch (err) {
-            systemPopup.textContent = "System performance: Error ❌";
+            systemPopup.textContent = "PBS status: Error ❌";
             console.error(err);
         }
     }
@@ -165,5 +168,22 @@ document.addEventListener("DOMContentLoaded", () => {
         // re-check refresh/delete logic immediately
         updateSingleChatButton();
     });
+
+    // Add in code for clicking link in message
+    // Loops through all the links and add listener
+    const linksInMessageArray = Array.from(linksInMessage)
+    linksInMessageArray.forEach(function (elem) {
+        elem.addEventListener("click", async () => {
+            // Listener -> Populate Message Box -> Click Send Btn
+            setTimeout(() => {
+                textarea.value = elem.textContent;
+            }, 100);
+
+            setTimeout(() => {
+                sendBtn.click();
+            }, 500);
+
+        })
+    })
 
 });

@@ -42,8 +42,8 @@ search_ticket_func = Tool(
     description="If user enters a ticket number that does not start with IN, prompt them for a valid ticket number. Only use this tool if the ticket number provided starts with 'IN'. Useful for when you need to answer questions when tracking ticket number. Summarise the output of the tool if exists."
 )
 
-# Function 3, check system performance
-def check_system_performance(input=""):
+# Function 3, check system status
+def check_system_status(input=""):
     """
     Manually updated in the backend.
 
@@ -60,9 +60,9 @@ def check_system_performance(input=""):
 
 # Activate criteria
 check_system_status_func = Tool(
-    name='To return current system performance',
-    func= check_system_performance,
-    description="Useful for when you need to answer questions about Public Billing System (PBS) system performance. "
+    name='To return current system status',
+    func= check_system_status,
+    description="Useful for when you need to answer questions about Public Billing System (PBS) system status. "
 )
 
 # List will be passed to chatbot agent to use

@@ -3,7 +3,7 @@ from flask import render_template, request, jsonify, redirect, url_for
 from application import app
 from groq import GroqError
 from models.chatbot import ticket_chatbot_agent
-from models.tools import check_system_performance
+from models.tools import check_system_status
 from application.utils import load_chats, save_chats
 import uuid
 from datetime import datetime
@@ -12,7 +12,8 @@ from datetime import datetime
 chats = load_chats()
 current_chat_id = None
 part_of_day = lambda hour : "Morning" if hour < 12  else "Afternoon" if hour < 18 else "Evening" if hour <= 24 else "Morning"
-messageStartUp = f"Good {part_of_day(datetime.now().hour)}!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n1. Report an issue with the system\n2. Track a ticket number\n3. Check system performance\n4. List commonly recurring issues\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
+right_arrow_img = '<img src="../static/images/right arrow.png" alt="btn" style="width: 1em; margin: auto;">'
+messageStartUp = f"Good {part_of_day(datetime.now().hour)}!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS {right_arrow_img}</span>\n<span class='link-in-message'>2. Track a ticket number {right_arrow_img}</span>\n<span class='link-in-message'>3. Checking system status {right_arrow_img}</span>\n<span class='link-in-message'>4. List commonly recurring issues {right_arrow_img}</span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
 
 # generating unique chat ID using UUID 
 def generate_chat_id():
@@ -48,12 +49,12 @@ def index():
         # take the first chat in chat json
         current_chat_id = list(chats.keys())[0]
 
-    return render_template("chat.html", messages=chats[current_chat_id]["messages"], chats=chats)
+    return render_template("chat.html", messages=chats[current_chat_id]["messages"], chats=chats, current_chat_id=current_chat_id)
 
 # show system performance in top right popup
 @app.route("/system_status")
 def system_status():
-    status_str = check_system_performance()
+    status_str = check_system_status()
     status_text = status_str.split(". Last updated")[0]
     
     # determine emoji based on status
@@ -66,11 +67,14 @@ def system_status():
 def chat(chat_id):
     global current_chat_id
 
+    # Clear AI memory
+    ticket_chatbot_agent.memory.clear()
+
     if chat_id not in chats:
         return redirect(url_for("index"))
 
     current_chat_id = chat_id
-    return render_template("chat.html", messages=chats[chat_id]["messages"], chats=chats)
+    return render_template("chat.html", messages=chats[chat_id]["messages"], chats=chats, current_chat_id=current_chat_id)
 
 # send message
 @app.route("/send_message", methods=["POST"])
@@ -109,6 +113,7 @@ def new_chat():
     new_id = generate_chat_id()
     chats[new_id] = {"title": newTitle,
                      "messages": [{"role": "ai", "content": messageStartUp}]}
+    
     current_chat_id = new_id
     save_chats(chats)
     
@@ -139,7 +144,10 @@ def delete_chat(chat_id):
     save_chats(chats)
 
     # if user current chat is the one being deleted -> redirect user to first chat_id
-    if current_chat_id == chat_id : return jsonify({"chat_id": None})
+    if len(list(chats.keys())) < 1:
+        return jsonify({"chat_id": None}) 
+    elif current_chat_id == chat_id:
+        return jsonify({"chat_id": list(chats.keys())[0]}) 
 
     # if user current chat is not the one being deleted -> stay in chat
     return jsonify({"chat_id": current_chat_id})

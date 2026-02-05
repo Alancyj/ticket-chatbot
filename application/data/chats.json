@@ -1,10 +1,76 @@
 {
-  "834c34cc-8dbc-4aa7-a3ad-bb4aec312adb": {
+  "e8df1c58-7e63-4edb-b4c9-7776d3a067be": {
     "title": "Chat 1",
     "messages": [
       {
         "role": "ai",
-        "content": "Good Morning!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n1. Report an issue with the system\n2. Track a ticket number\n3. Check system performance\n4. List commonly recurring issues\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
+        "content": "Good Afternoon!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Checking system status <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
+      },
+      {
+        "role": "human",
+        "content": "4. List commonly recurring issues"
+      },
+      {
+        "role": "ai",
+        "content": "Welcome to the Go-Live Public Billing System support chatbot. You have chosen to list commonly recurring issues. Some common issues with the Public Billing System include login errors, payment processing delays, and issues with patient data. If you would like to report an issue or have further questions, please let me know. Alternatively, you can dial our hotline 1234 5678 or email us at example@email.com"
+      }
+    ]
+  },
+  "c7fad348-648c-4027-a786-81759e289c4a": {
+    "title": "Chat 2",
+    "messages": [
+      {
+        "role": "ai",
+        "content": "Good Afternoon!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Checking system status <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
+      },
+      {
+        "role": "human",
+        "content": "1. Report an issue with PBS"
+      },
+      {
+        "role": "ai",
+        "content": "Welcome to the Go-Live Public Billing System support chatbot. You have chosen to report an issue with the system. Please describe the issue you are experiencing with PBS. If you need assistance, you can also dial our hotline 1234 5678 or email us at example@email.com"
+      },
+      {
+        "role": "human",
+        "content": "i'm having trouble with upos"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information available, it appears that there have been previous incidents related to UPOS integration issues at Tan Tock Seng Hospital, including incidents where the UPOS command bridge was not set up for workstations at ED Counter 10. These incidents have been resolved, but it's possible that a similar issue is occurring. I recommend checking the current system status and reporting the issue if it's still occurring."
+      }
+    ]
+  },
+  "c1a9d2b3-8daf-4773-8c3f-47d4258b1622": {
+    "title": "Chat 3",
+    "messages": [
+      {
+        "role": "ai",
+        "content": "Good Afternoon!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Checking system status <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
+      },
+      {
+        "role": "human",
+        "content": "i cant see the patient info in PBS"
+      },
+      {
+        "role": "ai",
+        "content": "Welcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation. 1. Report an issue with PBS 2. Track a ticket number 3. Check system performance 4. List commonly recurring issues. If you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com. Please choose one of the options to proceed with your query about patient info in PBS."
+      },
+      {
+        "role": "human",
+        "content": "1"
+      },
+      {
+        "role": "ai",
+        "content": "You've chosen to Report an issue with the system. Please describe the issue you're experiencing with the Public Billing System (PBS), and I'll do my best to assist you. If you need help, you can also dial our hotline 1234 5678 or email us at example@email.com"
+      },
+      {
+        "role": "human",
+        "content": "what is the resolution?"
+      },
+      {
+        "role": "ai",
+        "content": "The resolution for the issue of patient info not visible in PBS is that the root cause was identified as a resource exhaustion issue on one of the shared database clusters that supports multiple NBS applications. A spike in background job executions, triggered by a misconfigured report scheduler, led to unusually high CPU and I/O usage during peak working hours. System performance has returned to normal."
       }
     ]
   }

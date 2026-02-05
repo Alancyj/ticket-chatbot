@@ -28,15 +28,24 @@
 
       <!-- chat history -->
       <h2 class="sidebar-title">Conversations</h2>
-      <ul id="chat-list" class="chat-list">
+      <ul id="chat-list">
         {% for chat_id, chat in chats.items()|list|reverse %}
         <li>
+          <!-- Active -->
+          {% if chat_id == current_chat_id %}
+          <a class="active"
+            href="{{ url_for('chat', chat_id=chat_id) }}">
+            {{ chat.title }}
+          </a>
+          {% else %}
+          <!-- Non Active -->
           <a href="{{ url_for('chat', chat_id=chat_id) }}">
             {{ chat.title }}
           </a>
+          {% endif %}
+
           <!-- delete chat button (changes to refresh button based on logic) -->
-          <button class="delete-chat delete-chat-btn" data-chat-id="{{ chat_id }}"
-          data-has-user-messages="{{ 'true' if chat.messages
+          <button class="delete-chat delete-chat-btn" data-chat-id="{{ chat_id }}" data-has-user-messages="{{ 'true' if chat.messages
           |selectattr('role', 'equalto', 'human')
           |list
           |length > 0
@@ -48,6 +57,9 @@
       <!-- system logo footer -->
       <div class="sidebar-logo">
         <img src="{{ url_for('static', filename='images/bill-logo.png') }}" alt="System logo">
+        <p id="branding">
+          Public Billing <br>
+          System Chatbot</p>
       </div>
 
     </aside>
@@ -60,7 +72,7 @@
 
   <!-- system status pop-up -->
   <div id="system-status-popup" class="status-popup">
-    System status: ...
+    PBS status: ...
   </div>
 
   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
