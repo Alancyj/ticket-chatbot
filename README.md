@@ -1,8 +1,8 @@
-<!-- Starting the application -->
+>> Starting up the application
  1. Ensure that path is in ticket-chatbot
  2. run command - "python app.py"
 
-<!-- The data used for chatbot -->
+>> The data used for chatbot 
 Two types of data are used for the chatbot:
  1. 
     [Description] 

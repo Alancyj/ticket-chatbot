@@ -9,8 +9,8 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 
 
-REVIEWS_CSV_PATH = "./data/ttsh_golive_incidents_mockup_v2.csv"
-REVIEWS_CHROMA_PATH = "./chroma_data"
+REVIEWS_CSV_PATH = "./data/ttsh_golive_incidents_mockup_v3.csv"
+REVIEWS_CHROMA_PATH = "./chroma_data2"
 
 # SETUP
 dotenv.load_dotenv()

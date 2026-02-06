@@ -16,7 +16,7 @@ incident_vector_db = Chroma(
 # Function 1, retrieve similar incidents
 def retrieve_similar_incidents(input=""):
 
-    incident_retriever = incident_vector_db.as_retriever(k=5,search_type="similarity").invoke(input)
+    incident_retriever = incident_vector_db.as_retriever(k=3,search_type="similarity").invoke(input)
 
     return incident_retriever
 
@@ -24,12 +24,12 @@ def retrieve_similar_incidents(input=""):
 retrieve_incident_func = Tool(
     name='To search similar incidents',
     func= retrieve_similar_incidents,
-    description="Useful for when you need to finding similar incidents. Summarise the output of the tool if exists."
+    description="Useful for when you need to find similar incidents. Summarise the output of the tool if exists."
 )
 
 # Function 2, track a ticket number
 def search_ticket_number(input=""):
-    fpath = "models/data/ttsh_golive_incidents_mockup_v2.csv"
+    fpath = "models/data/ttsh_golive_incidents_mockup_v3.csv"
     
     table = pd.read_csv(fpath)
     incident_row = table[table["Incident Number"] == input]
@@ -39,7 +39,7 @@ def search_ticket_number(input=""):
 search_ticket_func = Tool(
     name='To search ticket number',
     func= search_ticket_number,
-    description="If user enters a ticket number that does not start with IN, prompt them for a valid ticket number. Only use this tool if the ticket number provided starts with 'IN'. Useful for when you need to answer questions when tracking ticket number. Summarise the output of the tool if exists."
+    description="Only use this tool if the user mentions 'IN'. If user enters a ticket number that does not start with IN, prompt them for a valid ticket number. Useful for when you need to answer questions when tracking ticket number. Summarise the output of the tool if exists."
 )
 
 # Function 3, check system status
