@@ -1,21 +1,4 @@
 {
-  "e8df1c58-7e63-4edb-b4c9-7776d3a067be": {
-    "title": "Chat 1",
-    "messages": [
-      {
-        "role": "ai",
-        "content": "Good Afternoon!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Checking system status <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
-      },
-      {
-        "role": "human",
-        "content": "4. List commonly recurring issues"
-      },
-      {
-        "role": "ai",
-        "content": "Welcome to the Go-Live Public Billing System support chatbot. You have chosen to list commonly recurring issues. Some common issues with the Public Billing System include login errors, payment processing delays, and issues with patient data. If you would like to report an issue or have further questions, please let me know. Alternatively, you can dial our hotline 1234 5678 or email us at example@email.com"
-      }
-    ]
-  },
   "c7fad348-648c-4027-a786-81759e289c4a": {
     "title": "Chat 2",
     "messages": [
@@ -74,44 +57,12 @@
       }
     ]
   },
-  "37ec6d19-33a6-4e2b-914f-ebfbf835131c": {
+  "ba0a1e10-29a8-434b-87c9-1ef5ba34aa09": {
     "title": "Chat 4",
     "messages": [
       {
         "role": "ai",
-        "content": "Good Afternoon!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Checking system status <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
-      },
-      {
-        "role": "human",
-        "content": "1. Report an issue with PBS"
-      },
-      {
-        "role": "ai",
-        "content": "Welcome to the Go-Live Public Billing System support chatbot. You have chosen to report an issue with the system. Please describe the issue you are experiencing with PBS. If you need assistance, you can also dial our hotline 1234 5678 or email us at example@email.com"
-      },
-      {
-        "role": "human",
-        "content": "trouble logging in"
-      },
-      {
-        "role": "ai",
-        "content": "It seems that you are having trouble logging in. A similar issue was previously reported where a user's account was locked after too many attempts, and the resolution was to contact the Ops team to unlock the account. You can try contacting them at exampleOpsForPBS@email.com to see if they can assist you with unlocking your account. If you need further assistance, you can also dial our hotline 1234 5678 or email us at example@email.com"
-      },
-      {
-        "role": "human",
-        "content": "doesn't help"
-      },
-      {
-        "role": "ai",
-        "content": "A similar incident was found where a user's account was locked after too many attempts, and the resolution was to contact the Ops team to unlock the account. You can try contacting them to see if they can assist you with unlocking your account. If you need further assistance, you can also dial our hotline 1234 5678 or email us at example@email.com"
-      },
-      {
-        "role": "human",
-        "content": "doesn't help"
-      },
-      {
-        "role": "ai",
-        "content": "A similar incident was found where a user's account was locked after too many attempts, and the resolution was to contact the Ops team to unlock the account. You can try contacting them to see if they can assist you with unlocking your account. If you need further assistance, you can also dial our hotline 1234 5678 or email us at example@email.com"
+        "content": "Good Morning!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Checking system status <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
       },
       {
         "role": "human",
@@ -119,32 +70,32 @@
       },
       {
         "role": "ai",
-        "content": "The current system status is Normal, and it was last updated at Fri Feb  6 12:01:45 2026. If you're still having trouble logging in, I can try to help you report an issue with the system. Please let me know if you'd like to proceed with that."
+        "content": "The current system status is Normal and was last updated on Fri Feb  6 01:48:32 2026."
+      },
+      {
+        "role": "human",
+        "content": "4. List commonly recurring issues"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information obtained, some commonly recurring issues with the Public Billing System include: resource exhaustion issues on shared database clusters, misconfigured report schedulers, and errors when retrieving billable events. These issues have caused delays in billing processes and reporting. The system performance has returned to normal after the root causes were identified and resolved."
+      },
+      {
+        "role": "human",
+        "content": "4. List commonly recurring issues"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information obtained, some commonly recurring issues with the Public Billing System include resource exhaustion issues on shared database clusters, misconfigured report schedulers, and errors when retrieving billable events or accessing the system, such as 'Authentication Failed' errors. These issues have caused delays in billing processes and reporting, but system performance has returned to normal after the root causes were identified and resolved."
       }
     ]
   },
-  "7e185123-eae6-4d06-acfc-eb12ec050dbb": {
+  "505af086-3869-430a-bb02-10267474f82a": {
     "title": "Chat 5",
     "messages": [
       {
         "role": "ai",
-        "content": "Good Afternoon!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Checking system status <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
-      },
-      {
-        "role": "human",
-        "content": "2. Track a ticket number"
-      },
-      {
-        "role": "ai",
-        "content": "The ticket number you provided does not exist in our records. Please ensure you have entered a valid ticket number starting with 'IN'. If you need further assistance, you can dial our hotline 1234 5678 or email us at example@email.com"
-      },
-      {
-        "role": "human",
-        "content": "IN6651503"
-      },
-      {
-        "role": "ai",
-        "content": "The incident number IN6651503 is related to an issue with the card machine (UPOS) not triggering after a click, with a priority of 2.0, and it was closed on July 22, 2025, at 12:02 AM."
+        "content": "Good Morning!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Checking system status <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
       }
     ]
   }

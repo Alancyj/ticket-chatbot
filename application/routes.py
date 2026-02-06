@@ -51,6 +51,13 @@ def index():
 
     return render_template("chat.html", messages=chats[current_chat_id]["messages"], chats=chats, current_chat_id=current_chat_id)
 
+# faq page
+@app.route("/faq")
+def faq():
+    current_chat_id = None
+    return render_template("faq.html", chats=chats, current_chat_id=current_chat_id)
+
+
 # show system performance in top right popup
 @app.route("/system_status")
 def system_status():
