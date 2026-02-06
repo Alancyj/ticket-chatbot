@@ -67,33 +67,99 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSystemStatus();
     setInterval(updateSystemStatus, 60000);
 
+    // allow only one faq accordion to be open at a time
+    const faqItems = document.querySelectorAll(".faq-item");
 
-    // click enter key to send message
-    textarea.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" && !e.shiftKey) {
-            e.preventDefault();
-            sendBtn.click();
-        }
+    faqItems.forEach((item) => {
+        item.addEventListener("toggle", () => {
+            if (item.open) {
+                faqItems.forEach((other) => {
+                    if (other !== item) {other.removeAttribute("open");}
+                });
+            }
+        });
     });
 
-    // auto resize input text area
-    textarea.addEventListener("input", function () {
-        this.style.height = "auto";
-        this.style.height = this.scrollHeight + "px";
-    });
+    if (textarea && sendBtn) {
+        // click enter key to send message
+        textarea.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                sendBtn.click();
+            }
+        });
 
-    // scroll chat to bottom
-    function scrollToBottom() {
-        chatWindow.scrollTop = chatWindow.scrollHeight;
+        // auto resize input text area
+        textarea.addEventListener("input", function () {
+            this.style.height = "auto";
+            this.style.height = this.scrollHeight + "px";
+        });
+
+        // send message
+        sendBtn.addEventListener("click", async () => {
+            const userMessage = textarea.value.trim();
+            if (!userMessage) return;
+
+            textarea.value = "";
+            textarea.style.height = "auto";
+
+            // adding user message to UI
+            const userDiv = document.createElement("div");
+            userDiv.classList.add("message", "human");
+            userDiv.innerHTML = `<p>${userMessage}</p>`;
+            chatWindow.appendChild(userDiv);
+            scrollToBottom();
+
+            // sending to backend
+            const res = await fetch("/send_message", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: userMessage }),
+            });
+            const data = await res.json();
+
+            if (data.error) {
+                alert(data.error);
+                return;
+            }
+
+            // adding AI reply to UI
+            const aiDiv = document.createElement("div");
+            aiDiv.classList.add("message", "ai");
+            aiDiv.innerHTML = `<p>${data.reply}</p>`;
+            chatWindow.appendChild(aiDiv);
+            scrollToBottom();
+
+            // marking chat as 'hasUserMessages' for delete button
+            const currentChatBtn = chatList.querySelector(
+                `.delete-chat[data-chat-id="${data.chat_id}"]`
+            );
+
+            if (currentChatBtn) {
+                currentChatBtn.dataset.hasUserMessages = "true";
+            }
+
+            // re-check refresh/delete logic immediately
+            updateSingleChatButton();
+        });
     }
-    scrollToBottom();
+
+    if (chatWindow) {
+        // scroll chat to bottom
+        function scrollToBottom() {
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+        }
+        scrollToBottom();
+    }
 
     // create new chat
-    newChatBtn.addEventListener("click", async () => {
-        const res = await fetch("/new_chat", { method: "POST" });
-        const data = await res.json();
-        window.location.href = `/chat/${data.chat_id}`;
-    });
+    if (newChatBtn) {
+        newChatBtn.addEventListener("click", async () => {
+            const res = await fetch("/new_chat", { method: "POST" });
+            const data = await res.json();
+            window.location.href = `/chat/${data.chat_id}`;
+        });
+    } 
 
     // context for changing refresh / delete chat button
     function updateSingleChatButton() {
@@ -120,54 +186,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // run once on page load
     updateSingleChatButton();
-
-    // send message
-    sendBtn.addEventListener("click", async () => {
-        const userMessage = textarea.value.trim();
-        if (!userMessage) return;
-
-        textarea.value = "";
-        textarea.style.height = "auto";
-
-        // adding user message to UI
-        const userDiv = document.createElement("div");
-        userDiv.classList.add("message", "human");
-        userDiv.innerHTML = `<p>${userMessage}</p>`;
-        chatWindow.appendChild(userDiv);
-        scrollToBottom();
-
-        // sending to backend
-        const res = await fetch("/send_message", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message: userMessage }),
-        });
-        const data = await res.json();
-
-        if (data.error) {
-            alert(data.error);
-            return;
-        }
-
-        // adding AI reply to UI
-        const aiDiv = document.createElement("div");
-        aiDiv.classList.add("message", "ai");
-        aiDiv.innerHTML = `<p>${data.reply}</p>`;
-        chatWindow.appendChild(aiDiv);
-        scrollToBottom();
-
-        // marking chat as 'hasUserMessages' for delete button
-        const currentChatBtn = chatList.querySelector(
-            `.delete-chat[data-chat-id="${data.chat_id}"]`
-        );
-
-        if (currentChatBtn) {
-            currentChatBtn.dataset.hasUserMessages = "true";
-        }
-
-        // re-check refresh/delete logic immediately
-        updateSingleChatButton();
-    });
 
     // Add in code for clicking link in message
     // Loops through all the links and add listener

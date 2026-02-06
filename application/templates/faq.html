@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="faq-main">
+
+  <h1 class="faq-title">Frequently Asked Questions</h1>
+
+  <!-- Category 1 -->
+  <h2 class="faq-category-title">General</h2>
+
+  <details class="faq-item">
+    <summary>
+      <span>What is this chatbot for?</span>
+      <span class="faq-icon"></span>
+    </summary>
+    <div class="faq-answer">
+      This chatbot is for the Public Billing System (PBS) Go-Live deployment period. When PBS is initially deployed at a Public Health Institution (PHI), this chatbot serves as the first line of support for users who are just getting to know the system. With this streamlined platform, users can easily report and track PBS issues.
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>
+      <span>When can I access the chatbot?</span>
+      <span class="faq-icon"></span>
+    </summary>
+    <div class="faq-answer">
+      The chatbot will be available for the Go-Live deployment phase of each PHI, after which users are advised to contact their PHI IT department for further assistance. 
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>
+      <span>How accurate are the chatbot's responses?</span>
+      <span class="faq-icon"></span>
+    </summary>
+    <div class="faq-answer">
+      The chatbot has been trained on historical ticket data denoting past issues and their respective resolutions. Responses will vary based on the context and complexity of the issue reported by the user, and if needed, users will be advised to report the issue as a ticket so that our PBS staff can further assist them.
+    </div>
+  </details>
+
+  <!-- Category 2 -->
+  <h2 class="faq-category-title">Chatbot options</h2>
+
+  <details class="faq-item">
+    <summary>
+      <span>Option 1: Reporting an issue with PBS</span>
+      <span class="faq-icon"></span>
+    </summary>
+    <div class="faq-answer">
+      Users who encounter issues when using PBS may report them via this option. The chatbot will suggest resolutions based on past incidents with similar descriptions. If the user is unable to resolve the issue based on these suggestions, the chatbot will prompt the user to report the issue via a form and submit it to be logged as a ticket.
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>
+      <span>Option 2: Requesting authorisation in PBS</span>
+      <span class="faq-icon"></span>
+    </summary>
+    <div class="faq-answer">
+      Users who encounter authorisation problems in PBS may request authorisation via this option.
+      
+      <br><br>Example A: User from the Finance office is unable to view PBS Finance Reports in the system and requires access to the tab. 
+      
+      <br><br>Example B: User is unable to log in to PBS with their given credentials even though they should be able to access the system.  
+      
+      <br><br>After selecting this option, the chatbot will prompt the user to fill in a form including relevant information like their credentials and access requirements. After submitting the form, the user will receive an email acknowledging their request and will subsequently receive another email once the request has been completed.
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>
+      <span>Option 3: Tracking a ticket number</span>
+      <span class="faq-icon"></span>
+    </summary>
+    <div class="faq-answer">
+      Users who wish to track their ticket via their given ticket number may do so using this option. The chatbot will prompt the user to put in the ticket number (e.g. IN1234567) and give the relevant information regarding the ticket and its progress status.
+    </div>
+  </details>
+
+  <details class="faq-item">
+    <summary>
+      <span>Option 4: Listing commonly recurring issues</span>
+      <span class="faq-icon"></span>
+    </summary>
+    <div class="faq-answer">
+      Users who wish to view issues that commonly occur during their PHI deployment period may do so via this option. The chatbot will list issues based on the tickets logged during the deployment period, which users can refer to and see whether there are similar issues to theirs.
+    </div>
+  </details>
+
+</div>
+{% endblock %}

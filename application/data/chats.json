@@ -1,21 +1,4 @@
 {
-  "e8df1c58-7e63-4edb-b4c9-7776d3a067be": {
-    "title": "Chat 1",
-    "messages": [
-      {
-        "role": "ai",
-        "content": "Good Afternoon!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Checking system status <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
-      },
-      {
-        "role": "human",
-        "content": "4. List commonly recurring issues"
-      },
-      {
-        "role": "ai",
-        "content": "Welcome to the Go-Live Public Billing System support chatbot. You have chosen to list commonly recurring issues. Some common issues with the Public Billing System include login errors, payment processing delays, and issues with patient data. If you would like to report an issue or have further questions, please let me know. Alternatively, you can dial our hotline 1234 5678 or email us at example@email.com"
-      }
-    ]
-  },
   "c7fad348-648c-4027-a786-81759e289c4a": {
     "title": "Chat 2",
     "messages": [
@@ -71,6 +54,48 @@
       {
         "role": "ai",
         "content": "The resolution for the issue of patient info not visible in PBS is that the root cause was identified as a resource exhaustion issue on one of the shared database clusters that supports multiple NBS applications. A spike in background job executions, triggered by a misconfigured report scheduler, led to unusually high CPU and I/O usage during peak working hours. System performance has returned to normal."
+      }
+    ]
+  },
+  "ba0a1e10-29a8-434b-87c9-1ef5ba34aa09": {
+    "title": "Chat 4",
+    "messages": [
+      {
+        "role": "ai",
+        "content": "Good Morning!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Checking system status <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
+      },
+      {
+        "role": "human",
+        "content": "3. Checking system status"
+      },
+      {
+        "role": "ai",
+        "content": "The current system status is Normal and was last updated on Fri Feb  6 01:48:32 2026."
+      },
+      {
+        "role": "human",
+        "content": "4. List commonly recurring issues"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information obtained, some commonly recurring issues with the Public Billing System include: resource exhaustion issues on shared database clusters, misconfigured report schedulers, and errors when retrieving billable events. These issues have caused delays in billing processes and reporting. The system performance has returned to normal after the root causes were identified and resolved."
+      },
+      {
+        "role": "human",
+        "content": "4. List commonly recurring issues"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information obtained, some commonly recurring issues with the Public Billing System include resource exhaustion issues on shared database clusters, misconfigured report schedulers, and errors when retrieving billable events or accessing the system, such as 'Authentication Failed' errors. These issues have caused delays in billing processes and reporting, but system performance has returned to normal after the root causes were identified and resolved."
+      }
+    ]
+  },
+  "505af086-3869-430a-bb02-10267474f82a": {
+    "title": "Chat 5",
+    "messages": [
+      {
+        "role": "ai",
+        "content": "Good Morning!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Checking system status <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
       }
     ]
   }

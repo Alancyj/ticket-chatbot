@@ -54,6 +54,17 @@
         {% endfor %}
       </ul>
 
+      <!-- FAQ button -->
+      <button id="faq-button">
+        <!-- Active -->
+        {% if request.endpoint == 'faq' %}
+          <a class="active" href="{{ url_for('faq') }}">FAQ</a>
+        {% else %}
+          <!-- Non Active -->
+          <a href="{{ url_for('faq') }}">FAQ</a>
+        {% endif %}
+      </button>
+
       <!-- system logo footer -->
       <div class="sidebar-logo">
         <img src="{{ url_for('static', filename='images/bill-logo.png') }}" alt="System logo">
