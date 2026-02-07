@@ -75,5 +75,381 @@
         "content": "Good Morning!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Request authorisation in PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
       }
     ]
+  },
+  "ec2abd94-412e-464b-8f05-7015354a4619": {
+    "title": "Chat 145",
+    "messages": [
+      {
+        "role": "ai",
+        "content": "Good Afternoon!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Request authorisation in PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
+      },
+      {
+        "role": "human",
+        "content": "4. List commonly recurring issues"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information obtained, the top three common issues are: Unable to activate Medisave scheme, Cash desk history not reflecting the payment, and MT Band / Subsidy schemes not showing on PBS M. For further assistance, please select one of the options: \n1. Report an issue with PBS\n2. Request authorisation in PBS\n3. Track a ticket number\n4. List commonly recurring issues. You can also contact our live deployment hotline at 12345678 or email example@email.com."
+      },
+      {
+        "role": "human",
+        "content": "what exactly were the issues for these three common issues? can elaborate?"
+      },
+      {
+        "role": "ai",
+        "content": "The top three common issues are: Unable to activate Medisave scheme, Cash desk history not reflecting the payment, and MT Band / Subsidy schemes not showing on PBS Menu. If you need help with any of these issues or have a different issue, please select one of the following options: \n1. Report an issue with PBS\n2. Request authorisation in PBS\n3. Track a ticket number\n4. List commonly recurring issues"
+      },
+      {
+        "role": "human",
+        "content": "can elaborate on the activate Medisave scheme issue?"
+      },
+      {
+        "role": "ai",
+        "content": "I don't know. Please select one of the options: \n1. Report an issue with PBS\n2. Request authorisation in PBS\n3. Track a ticket number\n4. List commonly recurring issues. \nYou can also contact our live deployment hotline at 12345678 or email example@email.com for assistance."
+      },
+      {
+        "role": "human",
+        "content": "can elaborate on the activate Medisave scheme issue?"
+      },
+      {
+        "role": "ai",
+        "content": "I don't know. To find more information about the issue, I can list the commonly recurring issues for you. "
+      },
+      {
+        "role": "human",
+        "content": "okay please list the commonly recurring issues"
+      },
+      {
+        "role": "ai",
+        "content": "The top three common issues are: Unable to activate Medisave scheme, Cash desk history not reflecting the payment, and MT Band / Subsidy schemes not showing on PBS Menu. Would you like me to elaborate on any of these issues?"
+      },
+      {
+        "role": "human",
+        "content": "please elaborate on the Medisave scheme issue"
+      },
+      {
+        "role": "ai",
+        "content": "I don't know. However, I can provide you with the top three common issues or you can select from the options: \n1. Report an issue with PBS\n2. Request authorisation in PBS\n3. Track a ticket number\n4. List commonly recurring issues. \nYou can also contact our live deployment hotline at 12345678 or email example@email.com for more information."
+      },
+      {
+        "role": "human",
+        "content": "4. List commonly recurring issues"
+      },
+      {
+        "role": "ai",
+        "content": "The top three common issues are: Unable to activate Medisave scheme, MT Band / Subsidy schemes not showing on PBS, and Cash desk history not reflecting the payment. Would you like me to elaborate on any of these issues?"
+      },
+      {
+        "role": "human",
+        "content": "Medisave scheme issue"
+      },
+      {
+        "role": "ai",
+        "content": "To assist you with your Medisave scheme issue, please select one of the following options: \n1. Report an issue with PBS\n2. Request authorisation in PBS\n3. Track a ticket number\n4. List commonly recurring issues\nYou can also contact our live deployment hotline at 12345678 or email example@email.com for immediate assistance."
+      },
+      {
+        "role": "human",
+        "content": "4"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information, the top three common issues are: Unable to activate Medisave scheme, MT Band / Subsidy schemes not showing on PBS, and Medisave scheme not working. Would you like me to elaborate on any of these issues?"
+      },
+      {
+        "role": "human",
+        "content": "elaborate on Medisave scheme issue"
+      },
+      {
+        "role": "ai",
+        "content": "I don't know"
+      }
+    ]
+  },
+  "82e05281-4ae8-4a05-b716-8a5878fb0fb9": {
+    "title": "Chat 146",
+    "messages": [
+      {
+        "role": "ai",
+        "content": "Good Afternoon!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Request authorisation in PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
+      },
+      {
+        "role": "human",
+        "content": "4. List commonly recurring issues"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information, the top three common issues are: Unable to activate Medisave scheme, MT Band / Subsidy schemes not showing on PBS, and Cash desk history not reflecting the payment. Would you like me to elaborate on any of these issues?"
+      },
+      {
+        "role": "human",
+        "content": "elaborate on MT Band issue"
+      },
+      {
+        "role": "ai",
+        "content": "I don't know"
+      },
+      {
+        "role": "human",
+        "content": "4. List commonly recurring issues"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information, the top three common issues are: Unable to activate Medisave scheme, MT Band / Subsidy schemes not showing on PBS, and Medisave scheme not activated or not working. Would you like me to elaborate on any of these issues?"
+      },
+      {
+        "role": "human",
+        "content": "can you repeat what you just said"
+      },
+      {
+        "role": "ai",
+        "content": "The top three common issues are: Unable to activate Medisave scheme, MT Band / Subsidy schemes not showing on PBS, and Medisave scheme not activated or not working. Would you like me to elaborate on any of these issues?"
+      },
+      {
+        "role": "human",
+        "content": "give me more details liek the incident desvription of the Medisave scheme"
+      },
+      {
+        "role": "ai",
+        "content": "I don't know. Please select one of the options: \n1. Report an issue with PBS\n2. Request authorisation in PBS\n3. Track a ticket number\n4. List commonly recurring issues"
+      },
+      {
+        "role": "human",
+        "content": "give me more details like the incident description of the Medisave scheme from the commonly recurring issues"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information available, the Medisave scheme issue is related to the Medisave balance showing up as zero, or the scheme not being activated or showing up in the payor list. The incident descriptions include issues such as Medisave balance showing up as zero, error messages when trying to activate the scheme, and the scheme not being available in the payor list. If you would like to report an issue related to the Medisave scheme, I can provide you with a form to fill out."
+      },
+      {
+        "role": "human",
+        "content": "test"
+      },
+      {
+        "role": "ai",
+        "content": "Hello! Welcome to the Public Billing System (PBS) support chat. I'm here to help you with any system-related issues. You can reach us directly via our live deployment hotline at 12345678 or email us at example@email.com. To get started, please select one of the following options: \n1. Report an issue with PBS\n2. Request authorisation in PBS\n3. Track a ticket number\n4. List commonly recurring issues"
+      },
+      {
+        "role": "human",
+        "content": "so when i ask you to elaborate on the common issues can you give me details like that of your previous previous message"
+      },
+      {
+        "role": "ai",
+        "content": "Hello! I'm here to help you with the Public Billing System (PBS) for Tan Tock Seng Hospital in Singapore. You can reach us directly at 12345678 or example@email.com for immediate assistance. I have four main functionalities to assist you: \n1. Report an issue with PBS\n2. Request authorisation in PBS\n3. Track a ticket number\n4. List commonly recurring issues\nPlease select one of the options by typing the number or the name of the functionality."
+      },
+      {
+        "role": "human",
+        "content": "wow youre useless"
+      },
+      {
+        "role": "ai",
+        "content": "Hello! I'm here to help you with the Public Billing System (PBS) for Tan Tock Seng Hospital in Singapore. You can reach us at 12345678 or example@email.com for live deployment support. I have four main functionalities: \n    1. Report an issue with PBS\n    2. Request authorisation in PBS\n    3. Track a ticket number\n    4. List commonly recurring issues\n    Please select one of the options above by typing the number or the functionality name."
+      }
+    ]
+  },
+  "819a2868-5af3-4ce6-aa9c-6394de5bf296": {
+    "title": "Chat 147",
+    "messages": [
+      {
+        "role": "ai",
+        "content": "Good Afternoon!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Request authorisation in PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
+      },
+      {
+        "role": "human",
+        "content": "4. List commonly recurring issues"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information, the top three common issues are: Unable to activate Medisave scheme, MT Band / Subsidy schemes not showing on PBS, and Cash desk history not reflecting the payment. Would you like me to elaborate on any of these issues?"
+      },
+      {
+        "role": "human",
+        "content": "elaborate on cashdesk history issue"
+      },
+      {
+        "role": "ai",
+        "content": "I don't know"
+      },
+      {
+        "role": "human",
+        "content": "elaborate on cashdesk history issue"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information available, the cashdesk history issue is related to a problem where the cash desk history is not reflecting the payment made. This issue occurred when the page was refreshed while collecting payment. The description of this issue is: 'Refreshed page while collecting payment, thus cash desk history not reflecting the payment made.'"
+      }
+    ]
+  },
+  "fa3978d7-8bc6-423d-8725-8e023dac2ff0": {
+    "title": "Chat 148",
+    "messages": [
+      {
+        "role": "ai",
+        "content": "Good Afternoon!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Request authorisation in PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
+      },
+      {
+        "role": "human",
+        "content": "4. List commonly recurring issues"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information, the top three common issues are: Unable to activate Medisave scheme, MT Band / Subsidy schemes not showing on PBS, and Medisave scheme not activated or not working. Would you like me to elaborate on any of these issues?"
+      },
+      {
+        "role": "human",
+        "content": "Elaborate on medisave issue"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information available, the Medisave issue is related to the Medisave scheme not being activated or not showing up in the payor list. For example, one incident reported that the Medisave balance showed up as zero, while another incident reported that the Medisave scheme was not activated even though the patient was eligible. The incident descriptions suggest that there may be technical issues or errors with the system that are causing these problems."
+      },
+      {
+        "role": "human",
+        "content": "how about the MT band issues"
+      },
+      {
+        "role": "ai",
+        "content": "I don't know. Please select one of the options: \n1. Report an issue with PBS\n2. Request authorisation in PBS\n3. Track a ticket number\n4. List commonly recurring issues. \nYou can also contact our live deployment hotline at 12345678 or email example@email.com for assistance."
+      },
+      {
+        "role": "human",
+        "content": "elaborate on the MT band issues"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information available, the MT band issues seem to be related to the MT Band/Subsidy schemes not showing up on the Public Billing System (PBS) for certain patients. The incident descriptions mention error messages appearing, such as 'National Means Testing Scheme error' and 'MTSOC (specialist outpatient) not showing'. These issues are prioritized as 2 and are still open. If you would like to report a similar issue or request assistance, please let me know."
+      },
+      {
+        "role": "human",
+        "content": "explain the cashdesk issues"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information available, the top three common issues are: Unable to activate Medisave scheme, Cash desk history not reflecting the payment, and MT Band / Subsidy schemes not showing on PBS. You mentioned 'cashdesk issues', which seems to be related to the 'Cash desk history not reflecting the payment' issue. This issue occurs when the page is refreshed while collecting payment, thus not updating the cash desk history. If you would like to know more about this issue or report a new issue, please let me know."
+      },
+      {
+        "role": "human",
+        "content": "please let me know more"
+      },
+      {
+        "role": "ai",
+        "content": "Hello! I'm here to help you with the Public Billing System (PBS) for Tan Tock Seng Hospital in Singapore. You can reach us at 12345678 or example@email.com for live deployment support. To get started, please select one of the following options: \n1. Report an issue with PBS\n2. Request authorisation in PBS\n3. Track a ticket number\n4. List commonly recurring issues"
+      },
+      {
+        "role": "human",
+        "content": "let me know more about the cashdesk issue"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information available, the top three common issues are: Unable to activate Medisave scheme, Cash desk history not reflecting the payment, and MT Band / Subsidy schemes not showing on PBS. You mentioned the cashdesk issue, which is related to the second common issue. The incident description for this issue is that the page was refreshed while collecting payment, thus the payment was not reflected in the cash desk history. If you would like to know more or report a specific issue, please let me know."
+      }
+    ]
+  },
+  "afa6ddd4-c10b-4fd1-8886-bc6def1f3b79": {
+    "title": "Chat 149",
+    "messages": [
+      {
+        "role": "ai",
+        "content": "Good Afternoon!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Request authorisation in PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
+      },
+      {
+        "role": "human",
+        "content": "4. List commonly recurring issues"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information, the top three common issues are: Unable to activate Medisave scheme, MT Band / Subsidy schemes not showing on PBS, and Medisave scheme not working or not in payor list. Would you like me to elaborate on any of these issues?"
+      },
+      {
+        "role": "human",
+        "content": "isn't the first and third issue listed the same"
+      },
+      {
+        "role": "ai",
+        "content": "I don't know. To better assist you, please select one of the following options: \n1. Report an issue with PBS\n2. Request authorisation in PBS\n3. Track a ticket number\n4. List commonly recurring issues. \nYou can also contact our live deployment hotline at 12345678 or email example@email.com for immediate assistance."
+      }
+    ]
+  },
+  "8156f113-7b5d-4433-a72c-88be49dd7d70": {
+    "title": "Chat 150",
+    "messages": [
+      {
+        "role": "ai",
+        "content": "Good Afternoon!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Request authorisation in PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
+      },
+      {
+        "role": "human",
+        "content": "4. List commonly recurring issues"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information, the top three common issues are: Unable to activate Medisave scheme, MT Band / Subsidy schemes not showing on PBS, and Medisave scheme not activated even though patient is eligible. If you would like me to elaborate on any of these issues, please let me know."
+      },
+      {
+        "role": "human",
+        "content": "can you explain all these issues"
+      },
+      {
+        "role": "ai",
+        "content": "The top three common issues are: Unable to activate Medisave scheme, MT Band / Subsidy schemes not showing on PBS, and Cash desk history not reflecting the payment. If you would like me to elaborate on any of these issues, please let me know."
+      }
+    ]
+  },
+  "c2e17286-0dc4-4778-878e-8e3bd959223e": {
+    "title": "Chat 151",
+    "messages": [
+      {
+        "role": "ai",
+        "content": "Good Afternoon!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Request authorisation in PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
+      },
+      {
+        "role": "human",
+        "content": "4. List commonly recurring issues"
+      },
+      {
+        "role": "ai",
+        "content": "The top three common issues are: Unable to activate Medisave scheme, MT Band / Subsidy schemes not showing on PBS, and Cash desk history not reflecting the payment. If you would like me to elaborate on any of these issues, please let me know."
+      },
+      {
+        "role": "human",
+        "content": "explain the cashdesk issue"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information available, the cashdesk issue is related to a problem where the cash desk history is not reflecting the payment made. This issue occurred when the page was refreshed while collecting payment. If you are experiencing a similar issue, please try to avoid refreshing the page during payment collection."
+      },
+      {
+        "role": "human",
+        "content": "explain the medisave issue"
+      },
+      {
+        "role": "ai",
+        "content": "The Medisave issue is a commonly recurring problem where the Medisave scheme is not activated or not showing up in the payor list, and the Medisave balance is showing as zero. For example, one incident reported that the Medisave balance showed up as zero, and another incident reported that the Medisave scheme was not activated even though the patient was eligible. These issues are causing problems with patient payments and billing."
+      },
+      {
+        "role": "human",
+        "content": "explain the mt band issue"
+      },
+      {
+        "role": "ai",
+        "content": "The MT Band issue refers to an error where the National Means Testing Subsidy schemes are not showing up on the Public Billing System (PBS) for patients. This issue has been encountered by multiple users, with incident descriptions mentioning error messages and the inability to access the subsidy schemes. The issue seems to be related to the system's functionality and has been reported with a priority level of 2."
+      }
+    ]
+  },
+  "a9e3d4d5-3039-4814-a299-bf377db6337d": {
+    "title": "Chat 152",
+    "messages": [
+      {
+        "role": "ai",
+        "content": "Good Afternoon!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Request authorisation in PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
+      },
+      {
+        "role": "human",
+        "content": "list top reported issues"
+      },
+      {
+        "role": "ai",
+        "content": "Based on the information, the top three common issues are: Unable to activate Medisave scheme, MT Band / Subsidy schemes not showing on PBS, and Medisave scheme not working or not in payor list. If you would like me to elaborate on any of these issues, please let me know."
+      }
+    ]
   }
 }
