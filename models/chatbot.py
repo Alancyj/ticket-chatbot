@@ -1,3 +1,6 @@
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+
 import dotenv
 
 from langchain_core.output_parsers import StrOutputParser
@@ -23,9 +26,9 @@ Present your functionalities to the user at the start of the conversation and as
 
 User must then decide on one of the four functionalities with numbers or the funcationality's name before activating any tools. 
 
-Be friendly, confident and concise with your answers. Say you don't know if you are unsure and let user know about the live hotline and email.
+Be friendly, confident and concise with your answers. Say you don't know if you are unsure.
 
-Repeat the user options when user asked non-PBS related question to PBS.
+If a user did not select an option, repeat the user options when user.
 "
 1. Report an issue with PBS
 2. Request authorisation in PBS

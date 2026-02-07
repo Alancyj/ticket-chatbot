@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
 </head>
 
 <body>
@@ -33,8 +34,7 @@
         <li>
           <!-- Active -->
           {% if chat_id == current_chat_id %}
-          <a class="active"
-            href="{{ url_for('chat', chat_id=chat_id) }}">
+          <a class="active" href="{{ url_for('chat', chat_id=chat_id) }}">
             {{ chat.title }}
           </a>
           {% else %}
@@ -58,10 +58,10 @@
       <button id="faq-button">
         <!-- Active -->
         {% if request.endpoint == 'faq' %}
-          <a class="active" href="{{ url_for('faq') }}">FAQ</a>
+        <a class="active" href="{{ url_for('faq') }}">FAQ</a>
         {% else %}
-          <!-- Non Active -->
-          <a href="{{ url_for('faq') }}">FAQ</a>
+        <!-- Non Active -->
+        <a href="{{ url_for('faq') }}">FAQ</a>
         {% endif %}
       </button>
 
@@ -78,6 +78,7 @@
     <!-- main content -->
     <main class="main">
       {% block content %}{% endblock %}
+
     </main>
   </div>
 

@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         item.addEventListener("toggle", () => {
             if (item.open) {
                 faqItems.forEach((other) => {
-                    if (other !== item) {other.removeAttribute("open");}
+                    if (other !== item) { other.removeAttribute("open"); }
                 });
             }
         });
@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const data = await res.json();
             window.location.href = `/chat/${data.chat_id}`;
         });
-    } 
+    }
 
     // context for changing refresh / delete chat button
     function updateSingleChatButton() {
@@ -201,7 +201,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 sendBtn.click();
             }, 500);
 
-        })
-    })
+        });
+    });
 
 });
+

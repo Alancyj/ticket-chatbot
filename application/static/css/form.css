@@ -1,0 +1,83 @@
+/* Button to appear form CSS */
+
+.form_button {
+    min-width: 20em;
+}
+
+.form_button div {
+    display: flex;
+    background-color: #5866d5;
+    color: #fff;
+    font-size: 1.2em;
+    padding: .2em .5em;
+    width: max-content;
+    margin: 2em auto;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px;
+}
+
+.form_button div p {
+    margin: auto;
+}
+.form_button div:hover {
+    background-color: #3a448f;
+    cursor: pointer;
+    transition: .4s;
+}
+
+/* Form body CSS */
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 20em;
+}
+
+.form form {
+    width: 100%;
+}
+
+.form p {
+    font-size: larger;
+    font-weight: bolder;
+    flex: 1 1 100%;
+    margin: 1em 0 0 .4em;
+}
+
+.form form label {
+    font-size: smaller;
+}
+
+.form form input, .form form select, .form form textarea {
+    font-size: smaller;
+    font-family: 'Hanken Grotesk', 'Inter', sans-serif;
+    border: 1.4px solid #00000088;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: .5em;
+}
+
+#institution {
+    background-color: rgba(148, 148, 148, 0.84);
+}
+
+.form form textarea {
+    width: 70%;
+    resize: none;
+}
+
+.form form input:last-of-type {
+    margin-top: .5em;
+    width: auto;
+    color: #fff;
+    font-weight: bolder;
+    padding: .4em .7em;
+    border: none;
+    background-color: #5866d5;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px;
+}
+
+.form form input:last-of-type:hover {
+    background-color: #3a448f;
+    cursor: pointer;
+    transition: .4s;
+}

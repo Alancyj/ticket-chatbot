@@ -1,3 +1,6 @@
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+
 from langchain.agents import Tool
 import pandas as pd
 from langchain_community.vectorstores import Chroma
@@ -13,18 +16,26 @@ incident_vector_db = Chroma(
 )
 
 # Start of tools
-# Function 1, retrieve similar incidents
+# Function 1.a, retrieve similar incidents
 def retrieve_similar_incidents(input=""):
 
     incident_retriever = incident_vector_db.as_retriever(k=3,search_type="similarity").invoke(input)
-
+    print(incident_retriever)
     return incident_retriever
 
 # Activate criteria
 retrieve_incident_func = Tool(
     name='To search similar incidents',
     func= retrieve_similar_incidents,
-    description="Useful for when you need to find similar incidents. Summarise the output of the tool if exists."
+    description="Useful for when you need to find similar incidents. Summarise the output of the tool if exists. If user did not include description of issue, do not suggest any past issues, tell them provide an issue description."
+)
+
+# Function 1.b, send reporting template
+def send_reporting_template(input=""): return
+send_reporting_template_func = Tool(
+    name='To send issue reporting template/form',
+    func= send_reporting_template,
+    description= """If user wants to fill up the issue reporting template/form. say exactly this 'Fill Issue Reporting Form'"""
 )
 
 # Function 2, track a ticket number
@@ -33,13 +44,18 @@ def search_ticket_number(input=""):
     
     table = pd.read_csv(fpath)
     incident_row = table[table["Incident Number"] == input]
-    return incident_row
+    s = ''
+    if len(incident_row) > 0:
+        for x,y in zip(table.columns, incident_row.iloc[0]):
+            s += f'{x}: {y}, '
+
+    return s
 
 # Activate criteria
 search_ticket_func = Tool(
     name='To search ticket number',
     func= search_ticket_number,
-    description="Only use this tool if the user mentions 'IN'. If user enters a ticket number that does not start with IN, prompt them for a valid ticket number. Useful for when you need to answer questions when tracking ticket number. Summarise the output of the tool if exists."
+    description="If the user provides a ticket number starting with IN and followed by exactly 7 digits, Send the tool's output if exists, including the description and status. If the status is closed, include the incident resolution and date closed as well. Else in all cases, say 'Please type the ticket number you want to track.'"
 )
 
 # Function 3, check system status
@@ -66,5 +82,5 @@ check_system_status_func = Tool(
 )
 
 # List will be passed to chatbot agent to use
-tools = [search_ticket_func, retrieve_incident_func, check_system_status_func]
-
+tools = [search_ticket_func, retrieve_incident_func, check_system_status_func, send_reporting_template_func]
+tools = [search_ticket_func, check_system_status_func, send_reporting_template_func]

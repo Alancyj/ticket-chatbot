@@ -6,14 +6,18 @@ from models.chatbot import ticket_chatbot_agent
 from models.tools import check_system_status
 from application.utils import load_chats, save_chats
 import uuid
+import random
 from datetime import datetime
+
+from flask import request
 
 # initialising variables
 chats = load_chats()
 current_chat_id = None
 part_of_day = lambda hour : "Morning" if hour < 12  else "Afternoon" if hour < 18 else "Evening" if hour <= 24 else "Morning"
 right_arrow_img = '<img src="../static/images/right arrow.png" alt="btn" style="width: 1em; margin: auto;">'
-messageStartUp = f"Good {part_of_day(datetime.now().hour)}!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS {right_arrow_img}</span>\n<span class='link-in-message'>2. Track a ticket number {right_arrow_img}</span>\n<span class='link-in-message'>3. Checking system status {right_arrow_img}</span>\n<span class='link-in-message'>4. List commonly recurring issues {right_arrow_img}</span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
+
+messageStartUp = f"Good {part_of_day(datetime.now().hour)}!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS {right_arrow_img}</span>\n<span class='link-in-message'>2. Request authorisation in PBS {right_arrow_img}</span>\n<span class='link-in-message'>3. Track a ticket number {right_arrow_img}</span>\n<span class='link-in-message'>4. List commonly recurring issues {right_arrow_img}</span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
 
 # generating unique chat ID using UUID 
 def generate_chat_id():
@@ -102,9 +106,21 @@ def send_message():
 
     # generate chatbot response
     ai_response = call_model(user_input)
+    # For issue reporting template
+    if "Fill Issue Reporting Form" in ai_response:
+        ai_response = 'Form has timed out.'
+
     chat["messages"].append({"role": "ai", "content": ai_response})
 
     save_chats(chats)
+
+    file_path = 'application/templates/forms.html' # Replace with your file's path
+
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            ai_response =  str(file.read())
+    except FileNotFoundError:
+        print(f"Error: The file '{file_path}' was not found.")
 
     return jsonify({"reply": ai_response, "chat_id": current_chat_id, "chat_title": chat["title"]})
 
@@ -114,10 +130,11 @@ def new_chat():
     global current_chat_id
 
     chatTitle = [chat["title"] for chat in list(chats.values())]
-    chatTitleNumber = [title.split(' ')[1] for title in chatTitle]
-    newTitle = 'Chat ' + str(int(max(chatTitleNumber)) + 1)
+    chatTitleNumber = [int(title.split(' ')[1]) for title in chatTitle]
+    newTitle = 'Chat ' + str(max(chatTitleNumber) + 1)
 
     new_id = generate_chat_id()
+
     chats[new_id] = {"title": newTitle,
                      "messages": [{"role": "ai", "content": messageStartUp}]}
     
@@ -158,3 +175,34 @@ def delete_chat(chat_id):
 
     # if user current chat is not the one being deleted -> stay in chat
     return jsonify({"chat_id": current_chat_id})
+
+# submit issue reporting form
+@app.route("/submit_reporting_form", methods=["POST"])
+def submit_report_form():
+    print(request.form['userid'])
+    print(request.form['email'])
+    
+    # logic to generate ticket number after form has been submitted
+    generated_ticket_number = 'IN'
+
+    for _ in range(7):
+        generated_ticket += random.randint(0, 9)
+
+    generated_ticket_number = f"ticket number is this {generated_ticket_number}" 
+
+    # save to chat history
+    chat = chats[current_chat_id]
+
+    chat["messages"][-1] = {"role": "ai", "content": generated_ticket_number}
+
+    save_chats(chats)
+
+    return render_template("chat.html", messages=chats[current_chat_id]["messages"], chats=chats, current_chat_id=current_chat_id)
+
+# submit auth form
+@app.route("/submit_auth_form/<chat_id>", methods=["POST"])
+def submit_auth_form(chat_id):
+
+    # -- emailing logic here --  
+
+    return

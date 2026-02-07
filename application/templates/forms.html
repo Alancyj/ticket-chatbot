@@ -1,0 +1,33 @@
+<!-- Issue Reporting Form -->
+<div class="form">
+    <p>Issue Reporting Form</p>
+    <form action="/submit_reporting_form" method="POST">
+        <label for="userid">User ID (PBS)</label>
+        <input type="text" id="userid" name="userid" value="" required minlength="5">
+        <label for="email">Work Email Address</label>
+        <input type="email" id="email" name="email" value="" required>
+        <label for="institution">Institution</label>
+        <input type="text" id="institution" name="institution" value="NTFH" disabled required>
+        <label for="location">Incident Location</label>
+        <select name="category" id="category" required>
+            <option value="">-- Please choose an option --</option>
+            <option value="Pharmacy">Pharmacy</option>
+            <option value="Radiology">Radiology</option>
+            <option value="Urinology">Urinology</option>
+            <option value="Octology">Octology</option>
+        </select>
+        <label for="category">Incident Category</label>
+        <select name="location" id="location" required>
+            <option value="">-- Please choose an option --</option>
+            <option value="Billing">Billing</option>
+            <option value="Payor & Schemes">Payor & Schemes</option>
+            <option value="Charging">Charging</option>
+            <option value="Authorisation">Authorisation</option>
+        </select>
+        <label for="priority">Priority (1 to 3)</label>
+        <input type="number" id="priority" name="priority" value="2" min="1" max="3" required>
+        <label for="description">Incident Description</label>
+        <textarea type="text" id="description" name="description" value="" required rows="4" minlength="30"></textarea>
+        <input type="submit" value="Submit">
+    </form>
+</div>

@@ -4,12 +4,12 @@
 <div class="chat-main">
   <div class="chat-window" id="chat-window">
     {% for msg in messages %}
-      <div class="message {{ msg.role|lower }}">
-        <p>{{ msg.content | safe }}</p>
-        {% if msg.date_time is defined %}
-        <p style="color: #a4a4a4; font-size: 90%; margin: 0 .5em .5em auto;">{{ msg.date_time }}</p>
-        {% endif %}
-      </div>
+    <div class="message {{ msg.role|lower }}">
+      <p>{{ msg.content | safe }}</p>
+      {% if msg.date_time is defined %}
+      <p style="color: #a4a4a4; font-size: 90%; margin: 0 .5em .5em auto;">{{ msg.date_time }}</p>
+      {% endif %}
+    </div>
     {% endfor %}
   </div>
 
@@ -20,4 +20,5 @@
     </div>
   </div>
 </div>
+
 {% endblock %}
