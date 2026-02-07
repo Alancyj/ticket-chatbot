@@ -7,6 +7,7 @@ from langchain_community.vectorstores import Chroma
 from models.groq_llm import embedding_model
 import datetime
 
+
 # Instantiate vector datebase 
 REVIEWS_CHROMA_PATH = "chroma_data/"
 
@@ -14,6 +15,7 @@ incident_vector_db = Chroma(
     persist_directory=REVIEWS_CHROMA_PATH,
     embedding_function=embedding_model,
 )
+
 
 # Start of tools
 # Function 1.a, retrieve similar incidents
@@ -27,16 +29,18 @@ def retrieve_similar_incidents(input=""):
 retrieve_incident_func = Tool(
     name='To search similar incidents',
     func= retrieve_similar_incidents,
-    description="Useful for when you need to find similar incidents. Summarise the output of the tool if exists. If user did not include description of issue, do not suggest any past issues, tell them provide an issue description."
+    description="Useful for when you need to find similar incidents. Summarise the output of the tool if exists. If user did not include description of issue, do not suggest any past issues, tell them to provide an issue description."
 )
+
 
 # Function 1.b, send reporting template
 def send_reporting_template(input=""): return
 send_reporting_template_func = Tool(
     name='To send issue reporting template/form',
     func= send_reporting_template,
-    description= """If user wants to fill up the issue reporting template/form. say exactly this 'Fill Issue Reporting Form'"""
+    description= "If user wants to fill up the issue reporting template/form. say exactly this 'Fill Issue Reporting Form'"
 )
+
 
 # Function 2, track a ticket number
 def search_ticket_number(input=""):
@@ -58,7 +62,25 @@ search_ticket_func = Tool(
     description="If the user provides a ticket number starting with IN and followed by exactly 7 digits, Send the tool's output if exists, including the description and status. If the status is closed, include the incident resolution and date closed as well. Else in all cases, say 'Please type the ticket number you want to track.'"
 )
 
-# Function 3, check system status
+
+# Function 4, list commonly recurring issues
+def list_common_issues(input=""):
+    fpath = "models/data/ntfh_golive_incidents_mockup_v1.csv"
+    
+    table = pd.read_csv(fpath)
+    table = table[table['Status'] != 'RESOLVED'] # only show users common issues that are unresolved
+
+    return table
+
+# Activate criteria
+list_common_issues_func = Tool(
+    name='To list commonly recurring issues',
+    func= list_common_issues,
+    description="Useful for finding commonly recurring issues. Summarise the top three common issues according to the Incident Title column. If user asks you to elaborate on or explain any one of the issues, include the incident description in your elaboration and explanation of the issue(s)."
+)
+
+
+# Corner popup, checking system status
 def check_system_status(input=""):
     """
     Manually updated in the backend.
@@ -74,13 +96,6 @@ def check_system_status(input=""):
 
     return f"{system_status}. Last updated: {last_updated}"
 
-# Activate criteria
-check_system_status_func = Tool(
-    name='To return current system status',
-    func= check_system_status,
-    description="Useful for when you need to answer questions about Public Billing System (PBS) system status. "
-)
-
 # List will be passed to chatbot agent to use
-tools = [search_ticket_func, retrieve_incident_func, check_system_status_func, send_reporting_template_func]
-tools = [search_ticket_func, check_system_status_func, send_reporting_template_func]
+tools = [search_ticket_func, retrieve_incident_func, send_reporting_template_func, list_common_issues_func]
+tools = [search_ticket_func, send_reporting_template_func, list_common_issues_func]
