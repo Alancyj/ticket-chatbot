@@ -1,0 +1,27 @@
+<!-- Authorisation Form -->
+<div class="form">
+    <p>Authorisation Form</p>
+    <form action="/submit_authorisation_form" method="POST">
+        <label for="userid">User ID (PBS)</label>
+        <input type="text" id="userid" name="userid" value="" required minlength="5">
+        <label for="email">Work Email Address</label>
+        <input type="email" id="email" name="email" value="" required>
+                <label for="institution">Institution</label>
+        <input type="text" id="institution" name="institution" value="NTFH" disabled required><br>
+        <label for="d">Password Reset</label>
+        <div style="display: flex; align-items: center; gap: 10px; margin-left: 2em; padding:0;">
+            <input type="checkbox" style="box-shadow: none;" id="pwReset" name="Reset Password" value="Reset Password">
+            <label for="pwReset">Reset Password</label>
+        </div>
+        <label for="d">Roles</label>
+        <div style="display: flex; align-items: center; gap: 10px; margin-left: 2em; padding:0;">
+            <input type="checkbox" style="box-shadow: none;" id="vCharges" name="Verifying Charges" value="Verifying Charges">
+            <label for="vCharges">Verifying Charges</label>
+            <input type="checkbox" style="box-shadow: none;" id="vBills" name="Editing Bills" value="Editing Bills">
+            <label for="vBills">Editing Bills</label>
+            <input type="checkbox" style="box-shadow: none;" id="Finance" name="Finance" value="Finance">
+            <label for="Finance">Finance</label>
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+</div>

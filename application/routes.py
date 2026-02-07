@@ -8,7 +8,9 @@ from application.utils import load_chats, save_chats
 import uuid
 import random
 from datetime import datetime
-
+from application.email_mod import email_class
+import pandas as pd
+from datetime import datetime
 from flask import request
 
 # initialising variables
@@ -106,21 +108,40 @@ def send_message():
 
     # generate chatbot response
     ai_response = call_model(user_input)
+    
     # For issue reporting template
     if "Fill Issue Reporting Form" in ai_response:
-        ai_response = 'Form has timed out.'
+        ai_response = 'Reporting Form has timed out.'
 
-    chat["messages"].append({"role": "ai", "content": ai_response})
+        chat["messages"].append({"role": "ai", "content": ai_response})
 
-    save_chats(chats)
+        save_chats(chats)
 
-    file_path = 'application/templates/forms.html' # Replace with your file's path
+        file_path = 'application/templates/reporting_form.html'
 
-    try:
-        with open(file_path, 'r', encoding='utf-8') as file:
-            ai_response =  str(file.read())
-    except FileNotFoundError:
-        print(f"Error: The file '{file_path}' was not found.")
+        try:
+            with open(file_path, 'r', encoding='utf-8') as file:
+                ai_response =  str(file.read())
+        except FileNotFoundError:
+            print(f"Error: The file '{file_path}' was not found.")
+
+    elif "Fill Authorisation Form" in ai_response:
+        ai_response = 'Authorisation Form has timed out.'
+
+        chat["messages"].append({"role": "ai", "content": ai_response})
+
+        save_chats(chats)
+
+        file_path = 'application/templates/authorisation_form.html'
+
+        try:
+            with open(file_path, 'r', encoding='utf-8') as file:
+                ai_response =  str(file.read())
+        except FileNotFoundError:
+            print(f"Error: The file '{file_path}' was not found.")
+    else:
+        chat["messages"].append({"role": "ai", "content": ai_response})
+        save_chats(chats)
 
     return jsonify({"reply": ai_response, "chat_id": current_chat_id, "chat_title": chat["title"]})
 
@@ -179,30 +200,109 @@ def delete_chat(chat_id):
 # submit issue reporting form
 @app.route("/submit_reporting_form", methods=["POST"])
 def submit_report_form():
-    print(request.form['userid'])
-    print(request.form['email'])
+    global current_chat_id
     
     # logic to generate ticket number after form has been submitted
     generated_ticket_number = 'IN'
 
     for _ in range(7):
-        generated_ticket += random.randint(0, 9)
+        generated_ticket_number += str(random.randint(0, 9))
 
-    generated_ticket_number = f"ticket number is this {generated_ticket_number}" 
+    generated_ticket_number_str = f"We have received your submission. You can track the ticket using ticket number <strong>{generated_ticket_number}</strong>" 
 
     # save to chat history
     chat = chats[current_chat_id]
 
-    chat["messages"][-1] = {"role": "ai", "content": generated_ticket_number}
+    chat["messages"][-1] = {"role": "ai", "content": generated_ticket_number_str}
 
     save_chats(chats)
 
-    return render_template("chat.html", messages=chats[current_chat_id]["messages"], chats=chats, current_chat_id=current_chat_id)
+    # -- save incident to excel file -- 
+
+    fpath = "models/data/ntfh_golive_incidents_mockup_v1.csv" # -- get file path
+    table = pd.read_csv(fpath) # -- read file
+    
+    now = datetime.now()
+    formatted_date = now.strftime("%m/%d/%y %I:%M %p") # current datetime
+
+    # create row and match value to column
+    new_row = {
+        'Incident Number': generated_ticket_number, 
+        'Incident Title': request.form['title'],
+        'Incident Description': request.form['description'],
+        'Status': "INPROGRESS",
+        'Status Update Date': formatted_date,
+        'Reported By': request.form['userid'],
+        'Institution': 'NTFH',
+        'Institution Name': 'Ng Teng Fong General Hospital',
+        'Reported Date': formatted_date,
+        'Location': 'NTFH',
+        'Affected Person Department': request.form['location'],
+        'Source': 'Chatbot',
+        'Application Priority': request.form['priority']
+               }
+
+    # add row in
+    table = pd.concat([table, pd.DataFrame([new_row])], ignore_index=True)
+    
+    # save table to excel
+    try:
+        table.to_csv(fpath, index=False)
+    except:
+        chat["messages"][-1] = {"role": "ai", "content": "Please fill the form again, ticket was not created successfully."}
+
+    return redirect(url_for('chat', chat_id = current_chat_id))
 
 # submit auth form
-@app.route("/submit_auth_form/<chat_id>", methods=["POST"])
-def submit_auth_form(chat_id):
+@app.route("/submit_authorisation_form", methods=["POST"])
+def submit_auth_form():
+    global current_chat_id
 
-    # -- emailing logic here --  
+    # -- content for the email --
+    recipent_email = request.form['email']
+    userid = request.form['userid']
+    pwReset = "Yes" if 'Reset Password' in request.form else "No"
+    vCharges = "\t- Verifying Charges\n" if 'Verifying Charges' in request.form else ""
+    vBills = "\t- Editing Bills\n" if 'Editing Bills' in request.form else ""
+    finance = "\t- Finance" if 'Finance' in request.form else ""
 
-    return
+    # -- emailing logic here --      
+
+    msg = f"""
+Dear user,
+
+This email is to acknowledged your authorisation request for the Public Billing System for Ng Teng Fong Hospital.
+
+    User ID: {userid}
+    Password Reset: {pwReset}
+    Roles:
+{vCharges} {vBills} {finance}
+
+Regards,
+PBS Authorisation Team
+    """
+
+    if len(request.form) < 3:
+        msg = """
+Dear user,
+
+This email is to you that your authorisation request for the Public Billing System for Ng Teng Fong Hospital has failed as there were no request selected in the form submitted.
+
+Regards,
+PBS Authorisation Team
+"""
+
+    email = email_class(sender_email= "yeejiealan1@gmail.com", recipent_email= recipent_email, message=msg) 
+    email.send_email()
+
+    # change message after user submitted
+    msg = f'Email has been sent out to {recipent_email}, please check your inbox.'
+
+    # save to chat history
+    chat = chats[current_chat_id]
+
+    chat["messages"][-1] = {"role": "ai", "content": msg}
+
+    # -- save incident to excel file -- 
+    return redirect(url_for('chat', chat_id = current_chat_id))
+
