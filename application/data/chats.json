@@ -55,6 +55,30 @@
       {
         "role": "ai",
         "content": "Authorisation Form has timed out."
+      },
+      {
+        "role": "human",
+        "content": "1. Report an issue with PBS"
+      },
+      {
+        "role": "ai",
+        "content": "You have chosen to report an issue with PBS. Please describe the issue you are experiencing, and I will be happy to assist you. If the issue is not resolved, I can provide you with an issue reporting template/form."
+      },
+      {
+        "role": "human",
+        "content": "i am unable to login into my account"
+      },
+      {
+        "role": "ai",
+        "content": "A similar issue was found where a user was unable to login due to their account being locked after too many attempts. The user contacted the Ops team to unlock their account and was able to log in afterwards. You may want to try contacting the Ops team (exampleOpsForPBS@email.com) to see if they can assist you with unlocking your account."
+      },
+      {
+        "role": "human",
+        "content": "this did not help"
+      },
+      {
+        "role": "ai",
+        "content": "Reporting Form has timed out."
       }
     ]
   },
@@ -449,6 +473,39 @@
       {
         "role": "ai",
         "content": "Based on the information, the top three common issues are: Unable to activate Medisave scheme, MT Band / Subsidy schemes not showing on PBS, and Medisave scheme not working or not in payor list. If you would like me to elaborate on any of these issues, please let me know."
+      }
+    ]
+  },
+  "2827dbfc-25af-45fa-afbc-8a4e93ab9e27": {
+    "title": "Chat 153",
+    "messages": [
+      {
+        "role": "ai",
+        "content": "Good Morning!\n\nWelcome to the Go-Live Public Billing System support chatbot. Below are some prompts to start the conversation.\n\n<span class='link-in-message'>1. Report an issue with PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>2. Request authorisation in PBS <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>3. Track a ticket number <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n<span class='link-in-message'>4. List commonly recurring issues <img src=\"../static/images/right arrow.png\" alt=\"btn\" style=\"width: 1em; margin: auto;\"></span>\n\nIf you want to speak to an agent, please dial our hotline 1234 5678. Alternatively, you can email us at example@email.com"
+      },
+      {
+        "role": "human",
+        "content": "1. Report an issue with PBS"
+      },
+      {
+        "role": "ai",
+        "content": "You have chosen to report an issue with PBS. Please describe the issue you are experiencing, and I will be happy to assist you. If the issue requires further investigation, I will provide a template for you to fill out."
+      },
+      {
+        "role": "human",
+        "content": "i am unable to login into my account"
+      },
+      {
+        "role": "ai",
+        "content": "A similar issue was found where a user was unable to login due to their account being locked after too many attempts. The user contacted the Ops team to unlock their account and was able to log in afterwards. You may want to try contacting the Ops team (exampleOpsForPBS@email.com) to see if they can assist you with unlocking your account. If this doesn't resolve your issue, please provide more details about your issue."
+      },
+      {
+        "role": "human",
+        "content": "this did not help"
+      },
+      {
+        "role": "ai",
+        "content": "Reporting Form has timed out."
       }
     ]
   }

@@ -29,7 +29,7 @@ def retrieve_similar_incidents(input=""):
 retrieve_incident_func = Tool(
     name='To search similar incidents',
     func= retrieve_similar_incidents,
-    description="This is the first function of the chatbot. Do not use this tool if the suggested resolution is not helping the user or does not solve their issue. Useful for when you need to find similar incidents. Summarise the output of the tool if exists. If user did not include description of issue, do not suggest any past issues, tell them provide an issue description. "
+    description=" Do not use this tool if the suggested resolution is not helping the user or does not solve their issue. Useful for when you need to find similar incidents. Summarise the output of the tool if exists. If user did not include description of issue, do not suggest any past issues, tell them provide an issue description. "
 )
 
 
@@ -38,7 +38,7 @@ def send_reporting_template(input=""): return
 send_reporting_template_func = Tool(
     name='To send issue reporting template/form',
     func= send_reporting_template,
-    description= """This is the first function of the chatbot. Do not use this tool if user has not described their issue. If after describing user issue, and the suggested solution did not help the user. Say exactly this 'Fill Issue Reporting Form'"""
+    description= """ Do not use this tool if user has not described their issue. If after describing user issue, and the suggested solution did not help the user. Say exactly this 'Fill Issue Reporting Form'"""
 )
 
 # Function 2, send auth form
