@@ -6,7 +6,10 @@ import pandas as pd
 from langchain_community.vectorstores import Chroma
 from models.groq_llm import embedding_model
 import datetime
-
+from flask import current_app
+from application import app
+from application.db import db
+from application.table import Tickets
 
 # Instantiate vector datebase 
 REVIEWS_CHROMA_PATH = "chroma_data/"
@@ -51,13 +54,44 @@ send_auth_template_func = Tool(
 
 # Function 3, track a ticket number
 def search_ticket_number(input=""):
-    fpath = "models/data/ttsh_golive_incidents_mockup_v3.csv"
+    #fpath = "models/data/ntfh_golive_incidents_mockup_v1.csv"
+
+    with app.app_context(): # inside Flask app context
+
+        # filter for unresolved tickets
+        tickets = (
+            db.session.query(Tickets).filter(Tickets.incident_number == input).all()
+        )
+        print(tickets)
+
+        # convert SQL obj to list of dicts
+        data = []
+        for t in tickets:
+            data.append({
+                "Incident Number": t.incident_number,
+                "Incident Title": t.incident_title,
+                "Incident Description": t.incident_description,
+                "Status": t.status,
+                "Status Update Date": t.status_update_date,
+                "Reported By": t.reported_by,
+                "Institution": t.institution,
+                "Institution Name": t.institution_name,
+                "Reported Date": t.reported_date,
+                "Location": t.location,
+                "Affected Person Department": t.affected_person_department,
+                "Source": t.source,
+                "Application Priority": t.priority
+            })
+        
+        print(data)
+
+        table = pd.DataFrame(data)
     
-    table = pd.read_csv(fpath)
-    incident_row = table[table["Incident Number"] == input]
+    # table = pd.read_csv(fpath)
+    # incident_row = table[table["Incident Number"] == input]
     s = ''
-    if len(incident_row) > 0:
-        for x,y in zip(table.columns, incident_row.iloc[0]):
+    if len(table) > 0:
+        for x,y in zip(table.columns, table.iloc[0]):
             s += f'{x}: {y}, '
 
     return s
@@ -71,10 +105,38 @@ search_ticket_func = Tool(
 
 # Function 4, list commonly recurring issues
 def list_common_issues(input=""):
-    fpath = "models/data/ntfh_golive_incidents_mockup_v1.csv"
-    
-    table = pd.read_csv(fpath)
-    table = table[table['Status'] != 'RESOLVED'] # only show users common issues that are unresolved
+    #fpath = "models/data/ntfh_golive_incidents_mockup_v1.csv"
+
+    with app.app_context(): # inside Flask app context
+
+        print(db.session.query(Tickets).all())
+
+        # filter for unresolved tickets
+        tickets = (
+            db.session.query(Tickets).filter(Tickets.status != "RESOLVED").all()
+        )
+        #print(tickets)
+
+        # convert SQL obj to list of dicts
+        data = []
+        for t in tickets:
+            data.append({
+                "Incident Number": t.incident_number,
+                "Incident Title": t.incident_title,
+                "Incident Description": t.incident_description,
+                "Status": t.status,
+                "Status Update Date": t.status_update_date,
+                "Reported By": t.reported_by,
+                "Institution": t.institution,
+                "Institution Name": t.institution_name,
+                "Reported Date": t.reported_date,
+                "Location": t.location,
+                "Affected Person Department": t.affected_person_department,
+                "Source": t.source,
+                "Application Priority": t.priority
+            })
+
+        table = pd.DataFrame(data)
 
     return table
 
@@ -100,6 +162,11 @@ def check_system_status(input=""):
     last_updated = x.strftime("%c") #e.g. output, Mon Sep 08 11:26:27 2025
 
     return f"{system_status}. Last updated: {last_updated}"
+    
+    # table = pd.read_csv(fpath)
+    # table = table[table['Status'] != 'RESOLVED'] # only show users common issues that are unresolved
+
+    return table
 
 # List will be passed to chatbot agent to use
 tools = [search_ticket_func, retrieve_incident_func, send_reporting_template_func, send_auth_template_func, list_common_issues_func]

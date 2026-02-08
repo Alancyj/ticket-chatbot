@@ -1,0 +1,6 @@
+venv
+.env
+Thoughts.md
+__pycache__
+application/__pycache__
+models/__pycache__

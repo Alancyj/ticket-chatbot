@@ -59,6 +59,7 @@ Sidebar style
 .sidebar.collapsed h2,
 .sidebar.collapsed ul,
 .sidebar.collapsed #new-chat,
+.sidebar.collapsed hr,
 .sidebar.collapsed #faq-button {
   display: none;
 }
@@ -120,9 +121,12 @@ Sidebar style
   overflow-y: auto;
 }
 
-/* .sidebar li {
-  
-} */
+.sidebar hr {
+  border: none;
+  height: 0.5px;
+  background-color: #f7f7f8;
+  margin: 10px 5px 0px;
+}
 
 #faq-button {
   font-size: 1.2rem;

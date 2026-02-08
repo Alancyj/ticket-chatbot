@@ -12,3 +12,6 @@ python-dotenv
 sentence-transformers
 torch
 transformers
+docker
+flask_sqlalchemy
+psycopg2

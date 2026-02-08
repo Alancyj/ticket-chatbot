@@ -7,11 +7,13 @@ from models.tools import check_system_status
 from application.utils import load_chats, save_chats
 import uuid
 import random
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from application.email_mod import email_class
 import pandas as pd
-from datetime import datetime
 from flask import request
+
+from .db import db
+from .table import ChatHistory, Tickets
 
 # initialising variables
 chats = load_chats()
@@ -48,9 +50,15 @@ def index():
     if chats == {}: # start a new chat if none exists
     # if current_chat_id is None or current_chat_id not in chats: # start a new chat if none exists
         current_chat_id = generate_chat_id()
+
+        db.session.add(ChatHistory(chat_id=current_chat_id, title = 'Chat 1'))
+        db.session.commit()
+
         chats[current_chat_id] = {"title": 'Chat 1', 
                                   "messages": [{"role": "ai", "content": messageStartUp}]}
+        
         save_chats(chats)
+    
     else:
         # take the first chat in chat json
         current_chat_id = list(chats.keys())[0]
@@ -114,7 +122,7 @@ def send_message():
         ai_response = 'Reporting Form has timed out.'
 
         chat["messages"].append({"role": "ai", "content": ai_response})
-
+        
         save_chats(chats)
 
         file_path = 'application/templates/reporting_form.html'
@@ -155,6 +163,9 @@ def new_chat():
     newTitle = 'Chat ' + str(max(chatTitleNumber) + 1)
 
     new_id = generate_chat_id()
+
+    db.session.add(ChatHistory(chat_id=new_id, title = newTitle))
+    db.session.commit()
 
     chats[new_id] = {"title": newTitle,
                      "messages": [{"role": "ai", "content": messageStartUp}]}
@@ -202,11 +213,20 @@ def delete_chat(chat_id):
 def submit_report_form():
     global current_chat_id
     
+    # define dataset file path
+    fpath = "models/data/ntfh_golive_incidents_mockup_v1.csv" # -- get file path
+    table = pd.read_csv(fpath) # -- read file
+    
     # logic to generate ticket number after form has been submitted
     generated_ticket_number = 'IN'
 
     for _ in range(7):
         generated_ticket_number += str(random.randint(0, 9))
+
+    while generated_ticket_number in list(table['Incident Number']): # -- in the case that tix no already exists in dataset
+        generated_ticket_number = 'IN'
+        for _ in range(7):
+            generated_ticket_number += str(random.randint(0, 9))
 
     generated_ticket_number_str = f"We have received your submission. You can track the ticket using ticket number <strong>{generated_ticket_number}</strong>" 
 
@@ -218,10 +238,6 @@ def submit_report_form():
     save_chats(chats)
 
     # -- save incident to excel file -- 
-
-    fpath = "models/data/ntfh_golive_incidents_mockup_v1.csv" # -- get file path
-    table = pd.read_csv(fpath) # -- read file
-    
     now = datetime.now()
     formatted_date = now.strftime("%m/%d/%y %I:%M %p") # current datetime
 
@@ -246,11 +262,41 @@ def submit_report_form():
     table = pd.concat([table, pd.DataFrame([new_row])], ignore_index=True)
     
     # save table to excel
+    # save table to excel and sql
     try:
         table.to_csv(fpath, index=False)
-    except:
-        chat["messages"][-1] = {"role": "ai", "content": "Please fill the form again, ticket was not created successfully."}
 
+        # ---- SAVE INCIDENT TO SQL TABLE ----
+        new_ticket = Tickets(
+            incident_number=generated_ticket_number,
+            incident_title=request.form['title'],
+            incident_description=request.form['description'],
+            incident_resolution=None,
+            resolution_team=None,
+            status="INPROGRESS",
+            reported_by=request.form['userid'],
+            institution="NTFH",
+            institution_name="Ng Teng Fong General Hospital",
+            location="NTFH",
+            affected_person_department=request.form['location'],
+            resolution_code=None,  
+            source="Chatbot",
+            priority=int(request.form['priority']),
+            close_date=None
+        )
+
+        with app.app_context(): 
+            db.session.add(new_ticket)
+            print("THIS CODE RAN")
+            print(db.session.query(Tickets).all())
+            print('before', db.session.query(Tickets.status_update_date).all())
+            db.session.commit()
+            print('after', db.session.query(Tickets.status_update_date).all())
+                
+    except Exception as e:
+        db.session.rollback()
+        chat["messages"][-1] = {"role": "ai", "content": "Please fill the form again, ticket was not created successfully."}
+    
     return redirect(url_for('chat', chat_id = current_chat_id))
 
 # submit auth form
