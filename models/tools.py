@@ -87,8 +87,6 @@ def search_ticket_number(input=""):
 
         table = pd.DataFrame(data)
     
-    # table = pd.read_csv(fpath)
-    # incident_row = table[table["Incident Number"] == input]
     s = ''
     if len(table) > 0:
         for x,y in zip(table.columns, table.iloc[0]):
@@ -104,8 +102,7 @@ search_ticket_func = Tool(
 )
 
 # Function 4, list commonly recurring issues
-def list_common_issues(input=""):
-    #fpath = "models/data/ntfh_golive_incidents_mockup_v1.csv"
+def list_common_issues(input=""): 
 
     with app.app_context(): # inside Flask app context
 
@@ -115,7 +112,6 @@ def list_common_issues(input=""):
         tickets = (
             db.session.query(Tickets).filter(Tickets.status != "RESOLVED").all()
         )
-        #print(tickets)
 
         # convert SQL obj to list of dicts
         data = []
@@ -136,15 +132,13 @@ def list_common_issues(input=""):
                 "Application Priority": t.priority
             })
 
-        table = pd.DataFrame(data)
-
-    return table
+    return data
 
 # Activate criteria
 list_common_issues_func = Tool(
     name='To list commonly recurring issues',
     func= list_common_issues,
-    description="Useful for finding commonly recurring issues. Summarise the top three common issues according to the Incident Title column. If user asks you to elaborate on or explain any one of the issues, include the incident description in your elaboration and explanation of the issue(s)."
+    description="Useful to list commonly recurring issues. Summarise the top three most common issues according to the Incident Title column. If user asks you to elaborate on or explain any one of the issues, include the incident description in your elaboration and explanation of the issue(s)."
 )
 
 # Corner popup, checking system status
@@ -162,9 +156,6 @@ def check_system_status(input=""):
     last_updated = x.strftime("%c") #e.g. output, Mon Sep 08 11:26:27 2025
 
     return f"{system_status}. Last updated: {last_updated}"
-    
-    # table = pd.read_csv(fpath)
-    # table = table[table['Status'] != 'RESOLVED'] # only show users common issues that are unresolved
 
     return table
 
