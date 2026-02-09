@@ -1,6 +1,61 @@
->> Starting up the application
+-> Starting up the application <br>
  1. Ensure that path is in ticket-chatbot
  2. run command - "python app.py"
+
+-> Starting using Docker <br>
+"docker run  --env-file .env -p 8080:8000 -e PORT=8000 alanyj/ticketchatbot"
+
+-> Github link <br>
+https://github.com/Alancyj/ticket-chatbot
+
+-> Demo video link <br>
+https://youtu.be/bshyGKUsccY
+
+
+
+-> Tree file directory <br>
+
+ticket-chatbot/                        
+├─ application/                           
+│  ├─ static/
+│  │  ├─ css/
+│  │  │  ├─ form.css                       # Handle styling for forms
+│  │  │  └─ main.css                       # Handle styling for all
+│  │  ├─ images/
+│  │  │  ├─ bill-logo.png
+│  │  │  ├─ pbs-logo.png                 
+│  │  │  └─ right arrow.png                  
+│  │  └─ js/
+│  │     └─ script.js
+│  ├─ templates/
+│  │  ├─ authorisation_form.html           # Authorisation form
+│  │  ├─ chat.html                         # Chat layout for main page
+│  │  ├─ faq.html                          # FAQ page
+│  │  ├─ layout.html                       # Layout for main page
+│  │  └─ reporting_form.html               # Reporting form
+│  ├─ __init__.py
+│  ├─ db.py                                # Initialise database
+│  ├─ email_mod.py                         # Handles emailing logic for 3rd function
+│  ├─ routes.py                            # Specify routes for website
+│  ├─ seed.py                              # Populate tickets in database
+│  ├─ table.py                             # Stores table format
+│  └─ utils.py                             # Handles saving and retrieving chats from db
+├─ chroma_data/
+│  └─ chroma.sqlite3                       # Stores vector data for retrieving similar incidents
+├─ models/
+│  ├─ __init__.py
+│  ├─ chatbot.py                           # Create chatbot agent
+│  ├─ create_retriever.py                  # Converts excel file to vector storage
+│  ├─ groq_llm.py                          # Initialise model
+│  └─ tools.py                             # Handle chatbot agent's tools
+├─ .dockerignore
+├─ .env                                    # Store secret keys
+├─ .gitignore
+├─ app.py                                  # Main file
+├─ docker-compose.yml                     
+├─ DockerFile                              # Commands to start Docker 
+├─ README.md                               # Contain simple documentation for project
+├─ requirements.txt                        # Project's main dependencies
 
 >> The data used for chatbot 
 Two types of data are used for the chatbot:
