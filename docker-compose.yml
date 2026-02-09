@@ -1,0 +1,9 @@
+# -- Code to store ML model's cache in environment
+
+services:
+  app:
+    build: .
+    environment:
+      - TRANSFORMERS_CACHE=/workspace/hf_cache
+    volumes:
+      - ./clap/cache:/workspace/hf_cache

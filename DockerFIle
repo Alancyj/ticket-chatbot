@@ -4,6 +4,9 @@ FROM python:3.10-slim
 # Set the working directory
 WORKDIR /usr/src/app
 
+# Create environment for ML models
+ENV TRANSFORMERS_CACHE=/workspace/hf_cache
+
 # Copy the requirements file and install the Python dependencies
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
@@ -11,5 +14,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application code
 COPY . .
 
+# Download embeddings model into image
+ENV GROQ_API_KEY=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
+ENV HF_TOKEN=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
+RUN python -c "from models.groq_llm import embedding_model, chatbot_llm"
+
 # Define the command to run the application
-CMD [ "python", "app.py" ]
+CMD gunicorn --bind 0.0.0.0:$PORT app:app

@@ -9,9 +9,10 @@ langchain-huggingface
 numpy
 pandas
 python-dotenv
-sentence-transformers
 torch
+sentence-transformers
 transformers
 docker
 flask_sqlalchemy
-psycopg2
+psycopg2-binary
+gunicorn
