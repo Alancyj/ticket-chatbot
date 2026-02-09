@@ -15,6 +15,8 @@ from flask import request
 from .db import db
 from .table import ChatHistory, Tickets
 
+print("Finish imports for routes.py")
+
 # initialising variables
 chats = load_chats()
 current_chat_id = None
@@ -194,6 +196,13 @@ def reset_chat(chat_id):
 @app.route("/delete_chat/<chat_id>", methods=["DELETE"])
 def delete_chat(chat_id):
     global current_chat_id
+
+    print(1)
+    with app.app_context():
+        print(2)
+        db.session.query(ChatHistory).filter_by(chat_id=chat_id).delete()
+        db.session.commit()
+        print(3)
 
     # delete chat key from chats
     if chat_id in chats: del chats[chat_id]
