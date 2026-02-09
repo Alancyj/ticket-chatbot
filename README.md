@@ -1,6 +1,11 @@
 -> Starting up the application <br>
  1. Ensure that path is in ticket-chatbot
- 2. run command - "python app.py"
+ 2. Ensure in you .env file, you have keys for
+   GROQ_API_KEY
+   HF_TOKEN
+   GOOGLE_PASSWORD
+   DATABASE_URL=postgresql://ticket_chatbot_user:YMZaWz7IXHZm9Y0xYj1SEBmyrobBxgzn@dpg-d640g6er433s73e16150-a.singapore-postgres.render.com/ticket_chatbot
+ 3. run command - "python app.py"
 
 -> Starting using Docker <br>
 "docker run  --env-file .env -p 8080:8000 -e PORT=8000 alanyj/ticketchatbot"
