@@ -1,4 +1,9 @@
 from application import app
 
 if __name__ == "__main__":
-    app.run(debug=True)
+
+    app.config["DEBUG"] = True
+
+    print("Starting Flask app...")
+
+    app.run()
